@@ -1,3 +1,7 @@
 body {
      background-image: url("../images/lightpaperfibers.png");
 }
+
+.navbar-toggle {
+	float: left;
+}

@@ -9,5 +9,7 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-	// add any functionality and listeners you want here
+	// enable wallet click
+	$("#wallet").click(function(){$("#walletModal").modal("show");})
 }
+

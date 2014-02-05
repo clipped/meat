@@ -12,8 +12,8 @@
 <body>
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			<div class="navbar-header pull-left">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -21,24 +21,171 @@
 				</button>
 				<a class="navbar-brand" href="#"><img src="images/clippedlogo.png"></a>
 			</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<div class="pull-right">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a id="wallet" href="#wallet">Wallet</a></li>
+				</ul>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul id="tab" class="nav navbar-nav">
 					<li class="active"><a href="#trending" data-toggle="tab">Trending</a></li>
 					<li><a href="#available" data-toggle="tab">Available</a></li>
 					<li><a href="#camera" data-toggle="tab">Camera</a></li>
-					<li><a href="#wallet">Wallet</a></li>
 				</ul>
-			</div><!-- /.navbar-collapse -->
-		</div><!-- /.container-fluid -->
+			</div>
+		</div>
 	</nav>
+
 	<div class="container-fluid">
 		<div class="tab-content">
-			<div class="tab-pane active" id="trending">askfjalkshfd</div>
-			<div class="tab-pane" id="available">iuerliutyeariut</div>
+			<div class="tab-pane active" id="trending">
+				<h1>Trending</h1>
+				<h3>Featured Coupons</h3>
+				<!-- USE A PARTIAL HERE LATER-->
+				<div id="myCarousel" class="carousel slide">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1" class=""></li>
+						<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="images/bootstrap-mdo-sfmoma-03.jpg" alt="" style="margin: 0 auto;">
+							<div class="carousel-caption">
+								<h4>First Featured Coupon</h4>
+								<p>Buy 1 Get 50% Off</p>
+							</div>
+						</div>
+						<div class="item">
+							<img src="images/bootstrap-mdo-sfmoma-03.jpg" alt="" style="margin: 0 auto;">
+							<div class="carousel-caption">
+								<h4>Second Featured Coupon</h4>
+								<p>Buy 1 Get 50% Off</p>
+							</div>
+						</div>
+						<div class="item">
+							<img src="images/bootstrap-mdo-sfmoma-03.jpg" alt="" style="margin: 0 auto;">
+							<div class="carousel-caption">
+								<h4>Third Featured Coupon</h4>
+								<p>Buy 1 Get 50% Off</p>
+							</div>
+						</div>
+					</div>
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</div>
+				<h3>Popular Coupons</h3>		
+				<!-- USE A PARTIAL HERE LATER-->
+				<ul class="media-list">
+					<li class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="images/placeholder.png" alt="...">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">Media heading</h4>
+							Information about this coupon will go here
+							<a class="pull-right" href="#">
+								<span class="glyphicon glyphicon-plus"></span>
+							</a>
+						</div>
+					</li>
+					<li class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="images/placeholder.png" alt="...">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">Media heading</h4>
+							Information about this coupon will go here
+							<a class="pull-right" href="#">
+								<span class="glyphicon glyphicon-plus"></span>
+							</a>
+						</div>
+					</li>
+					<li class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="images/placeholder.png" alt="...">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">Media heading</h4>
+							Information about this coupon will go here
+							<a class="pull-right" href="#">
+								<span class="glyphicon glyphicon-plus"></span>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tab-pane" id="available">
+				<h1>Available Coupons</h1>
 
+				<!-- USE A PARTIAL HERE LATER-->
+				<ul class="media-list">
+					<li class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="images/placeholder.png" alt="...">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">Media heading</h4>
+							Information about this coupon will go here
+							<a class="pull-right" href="#">
+								<span class="glyphicon glyphicon-plus"></span>
+							</a>
+						</div>
+					</li>
+					<li class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="images/placeholder.png" alt="...">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">Media heading</h4>
+							Information about this coupon will go here
+							<a class="pull-right" href="#">
+								<span class="glyphicon glyphicon-plus"></span>
+							</a>
+						</div>
+					</li>
+					<li class="media">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="images/placeholder.png" alt="...">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">Media heading</h4>
+							Information about this coupon will go here
+							<a class="pull-right" href="#">
+								<span class="glyphicon glyphicon-plus"></span>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tab-pane" id="camera">camera</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="walletModal" tabindex="-1" role="dialog" aria-labelledby="walletLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="walletLabel">Clipped Projects</h4>
+				</div>
+				<div class="modal-body">
+					...
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/index.js"></script>
 </body>
 </html>
