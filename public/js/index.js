@@ -10,6 +10,6 @@ $(document).ready(function() {
  */
 function initializePage() {
 	// enable wallet click
-	$("#wallet").click(function(){$("#walletModal").modal("show");})
+	//$("#wallet").click(function(){$("#walletModal").modal("show");})
 }
 

@@ -5,3 +5,25 @@ body {
 .navbar-toggle {
 	float: left;
 }
+
+.modal-dialog {
+	max-width: 80%;
+	margin: 50px auto;
+}
+
+.filter {
+	margin-top: 9px;
+	margin-bottom: 9px;
+}
+
+/* Centers navbar links @ >768px width */
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
