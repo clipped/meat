@@ -178,9 +178,14 @@
 			<div class="tab-pane" id="camera">
 				<h1>Camera</h1>
 				<form action="" method="post" enctype="multipart/form-data">
-					<input type="file" accept="image/*" capture>
+					<input id="chooseFileBtn" type="file" accept="image/*" capture>
 					<input type="submit" value="Upload">
 				</form>
+			</div>
+			<div class="tab-pane" id="checkout">
+				<h1>Check me out!</h1>
+				<p>Here is your generated coupon! Happy savings!</p>
+				<image src="images/placeholder.png">
 			</div>
 		</div>
 	</div>
@@ -197,7 +202,9 @@
 					Clipped coupons will be shown here.
 				</div>
 				<div class="modal-footer">
-					<a href="/checkout"><button type="button" class="btn btn-sm btn-primary">Generate Coupon</button></a>
+					<a href="#checkout" data-toggle="tab" id="checkoutBtn">
+						<button type="button" class="btn btn-sm btn-primary">Generate Coupon</button>
+					</a>
 				</div>
 			</div>
 		</div>
