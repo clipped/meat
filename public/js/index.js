@@ -10,7 +10,10 @@ $(document).ready(function() {
  */
 function initializePage() {
 	$("#checkoutBtn").click(function(){
+		// hide modal when checkout btn is clicked
 		$("#walletModal").modal("hide");
+		// remove highlighting of nav tab by removing active class
+		$("#navbar-collapse > ul > li.active").removeClass("active");
 	});
 }
 
