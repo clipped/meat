@@ -18,8 +18,14 @@ function initializePage() {
 
 	// Auto collapse nav menu when link is clicked
 	$(".navbar-collapse .nav a").click(function() {
-		console.log("ashdfklj");
 	    $(".navbar-toggle").click();
+	});
+
+	// Add coupon click handler
+	$(".addCoupon").click(function(e) {
+		e.preventDefault();
+		var num = parseInt($(".badge").text());
+		$(".badge").text( num +1);
 	});
 }
 
