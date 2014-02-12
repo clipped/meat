@@ -48,3 +48,7 @@ body {
 .tab-content {
     padding-top: 50px;
 }
+
+.glyphicon-plus {
+       color: #034F25; 
+   }
