@@ -25,8 +25,20 @@ function initializePage() {
 	$(".addCoupon").click(function(e) {
 		e.preventDefault();
 		var num = parseInt($(".badge").text());
-		$(".badge").text( num +1);
+		$(".badge").text( num + 1);
+
+		var className = $(this).closest("li").attr("class").split(" ")[1];
+		var childrenSpan = $("." + className).find("span");
+		childrenSpan.removeClass("glyphicon-plus");
+		childrenSpan.parent().unbind("click");
+		childrenSpan.addClass("glyphicon-check");
+	});
+
+	$(".disable").click(function(e) {
+		e.preventDefault();
+		return false;
 	});
 }
 
-
+function addCoupon(e) {
+}

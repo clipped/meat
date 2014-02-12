@@ -6,6 +6,16 @@ body {
 	float: left;
 }
 
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.navbar-brand img {
+    display: block;
+    margin: auto;
+}
 .modal-dialog {
 	max-width: 80%;
 	margin: 50px auto;
