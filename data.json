@@ -2,21 +2,21 @@
 	"popularCoupons": [
 		{
 			"name": "Arrowhead Water",
-			"description": "Get $2.50 off on a 24 pack of Arrowhead waterbottles",
+			"description": "Get $2.50 off on a 24-pack",
 			"store": "Vons",
 			"expiration": "03/22/14",
 			"imageURL": "images/coupons/arrowhead.jpg"
 		},
 		{
 			"name": "Bounty Paper Towels",
-			"description": "Get $1.00 off on a pair of Bounty Paper Towels",
+			"description": "Buy 2 for $7.00",
 			"store": "Vons",
 			"expiration": "03/22/14",
 			"imageURL": "images/coupons/bountypaper.jpg"
 		},
 		{
 			"name": "C&H Granulated Sugar",
-			"description": "Buy two 4-lb. C&H Granulated Sugar for $5.00",
+			"description": "Buy 2 for $5.00",
 			"store": "Vons",
 			"expiration": "03/22/14",
 			"imageURL": "images/coupons/sugar.jpg"			

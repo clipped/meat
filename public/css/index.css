@@ -33,8 +33,8 @@ body {
 }
 
 .shadow {
--moz-box-shadow: 0 0 5px 5px #999;
--webkit-box-shadow: 0 0 5px 5px #999;
+-moz-box-shadow: 0 0 5px 1px #afaeae;
+-webkit-box-shadow: 0 0 5px 1px #afaeae;
 }
 
 .couponThumbnail {
