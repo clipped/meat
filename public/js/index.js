@@ -15,5 +15,10 @@ function initializePage() {
 		// remove highlighting of nav tab by removing active class
 		$("#navbar-collapse > ul > li.active").removeClass("active");
 	});
+
+	// Auto collapse nav menu when link is clicked
+	$(".nav a").click(function() {
+	    $(".navbar-toggle").click();
+	});
 }
 
