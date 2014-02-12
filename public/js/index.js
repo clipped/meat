@@ -17,8 +17,10 @@ function initializePage() {
 	});
 
 	// Auto collapse nav menu when link is clicked
-	$(".nav a").click(function() {
+	$(".navbar-collapse .nav a").click(function() {
+		console.log("ashdfklj");
 	    $(".navbar-toggle").click();
 	});
 }
+
 

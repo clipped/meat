@@ -1,18 +1,18 @@
 {
-	"coupons": [
+	"popularCoupons": [
 		{
 			"name": "Arrowhead Water",
 			"description": "Get $2.50 off on a 24 pack of Arrowhead waterbottles",
 			"store": "Vons",
 			"expiration": "03/22/14",
-			"imageURL": "images/coupons/arrowhead.jpg"			
+			"imageURL": "images/coupons/arrowhead.jpg"
 		},
 		{
 			"name": "Bounty Paper Towels",
 			"description": "Get $1.00 off on a pair of Bounty Paper Towels",
 			"store": "Vons",
 			"expiration": "03/22/14",
-			"imageURL": "images/coupons/bountypaper.jpg"			
+			"imageURL": "images/coupons/bountypaper.jpg"
 		},
 		{
 			"name": "C&H Granulated Sugar",
@@ -34,8 +34,10 @@
 			"store": "Vons",
 			"expiration": "03/22/14",
 			"imageURL": "images/coupons/goldmedal.jpg"			
-		},
-		{
+		}
+	],
+	"availableCoupons" : [
+	{
 			"name": "Large Fuji Apples",
 			"description": "Buy large fuji apples for $1.50/lb",
 			"store": "Vons",
@@ -104,6 +106,6 @@
 			"store": "Vons",
 			"expiration": "03/22/14",
 			"imageURL": "images/coupons/breakfastsausages.jpg"			
-		},
+		}
 	]
 }

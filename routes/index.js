@@ -1,8 +1,8 @@
 /*
  * GET home page.
  */
-var coupons =  require('../data.json');
+var data =  require('../data.json');
 
 exports.view = function(req, res){
-  res.render('index', coupons);
+	res.render('index', data);
 };

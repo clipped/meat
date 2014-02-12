@@ -36,3 +36,11 @@ body {
 -moz-box-shadow: 0 0 5px 5px #999;
 -webkit-box-shadow: 0 0 5px 5px #999;
 }
+
+.couponThumbnail {
+    max-width: 64px;
+}
+
+.media-heading {
+    font-weight: bolder;
+}
