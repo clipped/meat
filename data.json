@@ -1,0 +1,109 @@
+{
+	"coupons": [
+		{
+			"name": "Arrowhead Water",
+			"description": "Get $2.50 off on a 24 pack of Arrowhead waterbottles",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/arrowhead.jpg"			
+		},
+		{
+			"name": "Bounty Paper Towels",
+			"description": "Get $1.00 off on a pair of Bounty Paper Towels",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/bountypaper.jpg"			
+		},
+		{
+			"name": "C&H Granulated Sugar",
+			"description": "Buy two 4-lb. C&H Granulated Sugar for $5.00",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/sugar.jpg"			
+		},
+		{
+			"name": "Chobani Greek Yogurt",
+			"description": "Buy 10 for $10",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/chobani.jpg"			
+		},
+		{
+			"name": "Gold Medal Flour",
+			"description": "Buy 2 for $5.00",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/goldmedal.jpg"			
+		},
+		{
+			"name": "Large Fuji Apples",
+			"description": "Buy large fuji apples for $1.50/lb",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/fujiapple.jpg"			
+		},
+		{
+			"name": "Large Navel Oranges",
+			"description": "Buy Naval Oranges for $0.99/lb",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/navelorange.jpg"			
+		},
+		{
+			"name": "Lean Cuisine",
+			"description": "Buy 5 Lean Cuisine meals for $10",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/leancuisine.jpg"			
+		},
+		{
+			"name": "Open Nature (TM) Boneless Chicken Breasts",
+			"description": "Get a pack of boneless chicken breasts for $5/lb",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/chickenbreasts.jpg"			
+		},
+		{
+			"name": "Wesson Cooking Oil",
+			"description": "Buy a 48-oz. Wesson Cooking Oil for $2.99",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/wessoncookingoil.jpg"			
+		},
+		{
+			"name": "Wrigley Valentine Exchange Kit",
+			"description": "Buy 2 for $6",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/valentineskit.jpg"			
+		},
+		{
+			"name": "Jack Daniel's",
+			"description": "Buy a handle for $16.99",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/jackdan.jpg"			
+		},
+		{
+			"name": "Bacardi Light or Gold",
+			"description": "Buy a 1.75 liter handle for $18.99",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/bacardi.jpg"			
+		},
+		{
+			"name": "12-Pack Blue Moon",
+			"description": "Buy a pack for $13.99",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/bluemoon.jpg"			
+		},
+		{
+			"name": "Safeway® Farms Breakfast Rolls",
+			"description": "Buy 2 for $0.69",
+			"store": "Vons",
+			"expiration": "03/22/14",
+			"imageURL": "images/coupons/breakfastsausages.jpg"			
+		},
+	]
+}
