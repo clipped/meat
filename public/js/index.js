@@ -21,7 +21,12 @@ function initializePage() {
 	    $(".navbar-toggle").click();
 	});
 
-
+	// Add coupon click handler
+	$(".addCoupon").click(function(e) {
+		e.preventDefault();
+		var num = parseInt($(".badge").text());
+		$(".badge").text( num +1);
+	});
 }
 
 
