@@ -11,7 +11,7 @@
 	<link href="css/index.css" rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-default shadow" role="navigation">
+	<nav class="navbar navbar-default navbar-fixed-top shadow" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header pull-left">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
@@ -41,7 +41,7 @@
 		<div class="tab-content">
 			<div class="tab-pane active" id="popular">
 				<!--<h1>popular</h1>-->
-				<h2>Featured Coupons</h2>
+				<h3>Featured Coupons</h3>
 				<div id="myCarousel" class="carousel slide">
 					<ol class="carousel-indicators">
 						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -72,7 +72,7 @@
 						<span class="glyphicon glyphicon-chevron-right"></span>
 					</a>
 				</div>
-				<h2>Popular Coupons</h2>
+				<h3>Popular Coupons</h3>
 				<ul class="media-list">
 					{{#each popularCoupons}}
 						{{> couponList}}
@@ -80,7 +80,7 @@
 				</ul>
 			</div>
 			<div class="tab-pane" id="available">
-				<span class="h1">Available Coupons</span>
+				<span class="h2">Available Coupons</span>
 				<form class="form-inline" role="form">
 					<input type="text" class="form-control filter" id="couponFilter" placeholder="Filter">
 					<select class="form-control filter" id="sortBy">

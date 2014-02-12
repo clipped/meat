@@ -18,9 +18,10 @@ function initializePage() {
 
 	// Auto collapse nav menu when link is clicked
 	$(".navbar-collapse .nav a").click(function() {
-		console.log("ashdfklj");
 	    $(".navbar-toggle").click();
 	});
+
+
 }
 
 

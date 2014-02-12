@@ -44,3 +44,7 @@ body {
 .media-heading {
     font-weight: bolder;
 }
+
+.tab-content {
+    padding-top: 50px;
+}
