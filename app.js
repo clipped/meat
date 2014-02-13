@@ -20,7 +20,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', handlebars({
 	helpers: {
 		couponClassName : function(name) {
-			return (name.replace(/[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~]/g, '').toLowerCase());
+			return (name.replace(/[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~\s]/g, '').toLowerCase());
 		}
 	}
 }));

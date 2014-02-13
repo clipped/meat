@@ -43,8 +43,8 @@ body {
 }
 
 .shadow {
--moz-box-shadow: 0 0 5px 1px #afaeae;
--webkit-box-shadow: 0 0 5px 1px #afaeae;
+    -moz-box-shadow: 0 0 5px 1px #afaeae;
+    -webkit-box-shadow: 0 0 5px 1px #afaeae;
 }
 
 .couponThumbnail {
@@ -60,5 +60,5 @@ body {
 }
 
 .glyphicon-plus {
-       color: #034F25; 
-   }
+    color: #034F25; 
+}
