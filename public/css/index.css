@@ -59,9 +59,9 @@ body {
     padding-top: 50px;
 }
 
-.glyphicon-plus {
+/*.glyphicon-plus {
        color: #034F25; 
-}
+}*/
 
 #green3 {
     background-color: #EAF8DD;
@@ -72,5 +72,6 @@ body {
 }
 
 #green1 {
-    background-color: #D4F2BB;
+    background-color: #C0EA99;
 }
+
