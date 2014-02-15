@@ -47,9 +47,9 @@ body {
     -webkit-box-shadow: 0 0 5px 1px #afaeae;
 }
 
-.couponThumbnail {
+/*.couponThumbnail {
     max-width: 64px;
-}
+}*/
 
 .media-heading {
     font-weight: bolder;
@@ -59,6 +59,19 @@ body {
     padding-top: 50px;
 }
 
-.glyphicon-plus {
-    color: #034F25; 
+/*.glyphicon-plus {
+       color: #034F25; 
+}*/
+
+#green3 {
+    background-color: #EAF8DD;
 }
+
+#green2 {
+    background-color: #DFF5CC;
+}
+
+#green1 {
+    background-color: #C0EA99;
+}
+
