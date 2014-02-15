@@ -2,10 +2,15 @@ var data =  require('../data.json');
 
 exports.view = function(req, res){
 	var sort = req.query["sort"];
+	var getPop = req.query["popular"] == '1';
 
-// coupons is th elist of all the coupons
-	var coupons = [data.popularCoupons + data.availableCoupons];
-	console.log(data);
+	if(getPop) {
+		res.render("partials/coupons", {"coupons": data.popularCoupons});
+		return;
+	}
+
+	// coupons is th elist of all the coupons
+	var coupons = data.popularCoupons.concat(data.availableCoupons);
 
 	if(sort == "Expiration Date") {
 		coupons.sort(function(a,b) {
@@ -14,6 +19,5 @@ exports.view = function(req, res){
 			return a < b;
 		});
 	}
-	
-	res.json(data);
+	res.render("partials/coupons", {"coupons":coupons});
 };
