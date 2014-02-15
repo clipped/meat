@@ -92,7 +92,7 @@
 				<h3>Available Coupons</h3>
 				<form class="form-inline" role="form">
 					<input type="text" class="form-control filter" id="couponFilter" placeholder="Filter">
-					<select class="form-control filter" id="sortBy">
+					<select class="form-control filter" id="sortBy" onchange="getCoupons(this)">
 						<option>Sort By</option>
 						<option>Expiration Date</option>
 						<option>Popularity</option>

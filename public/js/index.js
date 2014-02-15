@@ -45,6 +45,7 @@ function addCoupon(e) {
 	childrenSpan.parent().unbind("click");
 	childrenSpan.addClass("glyphicon-check");
 
+	// update clone of coupon in myClip
 	var couponClone = $("." + className).clone()[0];
 	var couponCloneGlyph = $(couponClone).find(".glyphicon");
 	couponCloneGlyph.removeClass("glyphicon-check");
@@ -52,9 +53,9 @@ function addCoupon(e) {
 	couponCloneGlyph.parent().click(removeCoupon);
 	
 	// add item to myClip
-	if(num == 1) {
+	if(num == 1) 
 		$("#walletModal .modal-body").html('<ul class="media-list"></ul>');
-	}
+
 	$("#walletModal .modal-body ul").append(couponClone);
 }
 
@@ -76,10 +77,21 @@ function removeCoupon(e) {
 	var className = $(this).closest("li").attr("class").split(" ")[1];
 	var childrenSpan = $("." + className).find("span");
 
-	// change x icons to + icons
+	// change check icons to + icons
 	childrenSpan.removeClass("glyphicon-check");
 	childrenSpan.parent().unbind("click");
 	childrenSpan.addClass("glyphicon-plus");
 	childrenSpan.parent().click(addCoupon);
 
+}
+
+function getCoupons(sel) {
+    var value = sel.options[sel.selectedIndex].value;
+
+    $.get("/coupons?sort="+value, function(data) {
+    	for(var i in data){
+			console.log(data);
+		}
+
+    });
 }
