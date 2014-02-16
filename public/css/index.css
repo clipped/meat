@@ -75,3 +75,7 @@ body {
     background-color: #C0EA99;
 }
 
+.disable {
+    pointer-events: none;
+    cursor: default;
+}

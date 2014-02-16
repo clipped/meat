@@ -11,11 +11,11 @@ $(document).ready(function() {
 function initializePage() {
 	$.get("coupons", {sort: "", popular: 1}, function(data) {
 		$("#popular").append(data);
-	});
-
-	$.get("coupons", {sort: "", popular: 0}, function(data) {
-		$("#available").append(data);
-		console.log(data);
+		$.get("coupons", {sort: "", popular: 0}, function(data) {
+			$("#available").append(data);
+			// Add coupon click handler
+			$(".addCoupon").click(addCoupon);
+		});
 	});
 
 	$("#checkoutBtn").click(function(){
@@ -28,14 +28,6 @@ function initializePage() {
 	// Auto collapse nav menu when link is clicked
 	$(".navbar-collapse .nav a").click(function() {
 	    $(".navbar-toggle").click();
-	});
-
-	// Add coupon click handler
-	$(".addCoupon").click(addCoupon);
-
-	$(".disable").click(function(e) {
-		e.preventDefault();
-		return false;
 	});
 }
 
@@ -50,15 +42,13 @@ function addCoupon(e) {
 	var childrenSpan = $("." + className).find("span");
 
 	// change + icons to check icons
-	childrenSpan.removeClass("glyphicon-plus");
+	childrenSpan.toggleClass("glyphicon-plus glyphicon-check");
 	childrenSpan.parent().unbind("click");
-	childrenSpan.addClass("glyphicon-check");
 
 	// update clone of coupon in myClip
 	var couponClone = $("." + className).clone()[0];
 	var couponCloneGlyph = $(couponClone).find(".glyphicon");
-	couponCloneGlyph.removeClass("glyphicon-check");
-	couponCloneGlyph.addClass("glyphicon-remove");
+	couponCloneGlyph.toggleClass("glyphicon-check glyphicon-remove");
 	couponCloneGlyph.parent().click(removeCoupon);
 	
 	// add item to myClip
@@ -87,9 +77,8 @@ function removeCoupon(e) {
 	var childrenSpan = $("." + className).find("span");
 
 	// change check icons to + icons
-	childrenSpan.removeClass("glyphicon-check");
-	childrenSpan.parent().unbind("click"); 	
-	childrenSpan.addClass("glyphicon-plus");
+	childrenSpan.toggleClass("glyphicon-check glyphicon-plus");
+	childrenSpan.parent().unbind("click");
 	childrenSpan.parent().click(addCoupon);
 
 }
@@ -100,5 +89,17 @@ function getCoupons(sel) {
     $.get("/coupons?sort="+value, function(data) {
     	$("#available .couponlist").remove();
     	$("#available").append(data);
+    	var added = [];
+    	$("#walletModal .modal-body li").each(function() {
+    		added.push("." + $(this).attr('class').split(' ')[1]);
+    	});
+    	added = added.join(", ");
+
+    	var availCoupons = $("#available li");
+    	var addedCouponsGlphySpan = availCoupons.filter(added).find("span");
+
+		availCoupons.not(added).find(".addCoupon").click(addCoupon);
+		addedCouponsGlphySpan.removeClass("glyphicon-plus");
+		addedCouponsGlphySpan.addClass("glyphicon-check");
     });
 }
