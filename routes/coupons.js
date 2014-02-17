@@ -1,28 +1,63 @@
+
 var data =  require('../data.json');
 
 exports.view = function(req, res){
 	var sort = req.query["sort"];
+	var getPop = req.query["popular"] == '1';
 
-// coupons is th elist of all the coupons
+	if(getPop) {
+		res.render("partials/coupons", {"coupons": data.popularCoupons});
+		return;
+	}
+
+	// coupons is th elist of all the coupons
 	var coupons = data.popularCoupons.concat(data.availableCoupons);
 
 	if(sort == "Expiration Date") {
 		coupons.sort(function(a,b) {
 			var da = new Date(a.expiration),
 				db = new Date(b.expiration);
-			    console.log(da.getDay());
-			    return 1;
+			if( da < db)
+				return -1;
+			else if(da > db)
+				return 1;
+			else{
+				if( a.name.toLowerCase() < b.name.toLowerCase())
+					return -1;
+				if( a.name.toLowerCase() > b.name.toLowerCase() )
+					return 1;
+			}
+			return 0;
+
 		});
 	}
+
 	else if(sort == "Name"){
-		coupons.sort(function(a,b) {
-			if( a.name.toLowerCase() < b.name.toLowerCase())
+	coupons.sort(function(a,b) {
+		if( a.name.toLowerCase() < b.name.toLowerCase())
+			return -1;
+		if( a.name.toLowerCase() > b.name.toLowerCase() )
+			return 1;
+		return 0;
+		});	
+	}
+
+	else if(sort == "Store"){
+		coupons.sort(function(a,b){
+			if( a.store.toLowerCase() < b.name.toLowerCase() )
 				return -1;
-			if( a.name.toLowerCase() > b.name.toLowerCase() )
+			else if( a.store.toLowerCase() > b.name.toLowerCase() )
 				return 1;
+			else{
+				if( a.name.toLowerCase() < b.name.toLowerCase())
+					return -1;
+				if( a.name.toLowerCase() > b.name.toLowerCase() )
+					return 1;
+			}
 			return 0;
 		});
 	}
-	
-	res.json(data);
+
+	res.render("partials/coupons", {"coupons":coupons});
 };
+

@@ -9,6 +9,15 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
+	$.get("coupons", {sort: "", popular: 1}, function(data) {
+		$("#popular").append(data);
+	});
+
+	$.get("coupons", {sort: "", popular: 0}, function(data) {
+		$("#available").append(data);
+		console.log(data);
+	});
+
 	$("#checkoutBtn").click(function(){
 		// hide modal when checkout btn is clicked
 		$("#walletModal").modal("hide");
@@ -79,7 +88,7 @@ function removeCoupon(e) {
 
 	// change check icons to + icons
 	childrenSpan.removeClass("glyphicon-check");
-	childrenSpan.parent().unbind("click");
+	childrenSpan.parent().unbind("click"); 	
 	childrenSpan.addClass("glyphicon-plus");
 	childrenSpan.parent().click(addCoupon);
 
@@ -89,9 +98,7 @@ function getCoupons(sel) {
     var value = sel.options[sel.selectedIndex].value;
 
     $.get("/coupons?sort="+value, function(data) {
-    	for(var i in data){
-			console.log(data);
-		}
-
+    	$("#available .couponlist").remove();
+    	$("#available").append(data);
     });
 }

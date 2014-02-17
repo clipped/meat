@@ -82,11 +82,7 @@
 					</a>
 				</div>
 				<h3>Popular Coupons</h3>
-				<ul class="media-list">
-					{{#each popularCoupons}}
-						{{> couponList}}
-					{{/each}}
-				</ul>
+				
 			</div>
 			<div class="tab-pane" id="available">
 				<h3>Available Coupons</h3>
@@ -95,18 +91,10 @@
 					<select class="form-control filter" id="sortBy" onchange="getCoupons(this)">
 						<option>Sort By</option>
 						<option>Expiration Date</option>
-						<option>Popularity</option>
 						<option>Store</option>
+						<option>Name</option>
 					</select>
 				</form>
-				<ul class="media-list">
-					{{#each popularCoupons}}
-						{{> couponList}}
-					{{/each}}
-					{{#each availableCoupons}}
-						{{> couponList}}
-					{{/each}}
-				</ul>
 			</div>
 			<div class="tab-pane" id="camera">
 				<h1>Camera</h1>
