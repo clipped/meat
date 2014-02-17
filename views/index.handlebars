@@ -21,7 +21,7 @@
 				<span class="icon-bar" id="green3"></span>
 				</button>
 			</div>
-			<div class="navbar-brand" href="#"><img src="images/logo.png"></div>
+			<div class="navbar-brand"><img src="images/logo.png"></div>
 			<div class="pull-right">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a id="wallet" data-toggle="modal" href="#walletModal">myClip <span class="badge">0</span></a></li>
@@ -40,6 +40,10 @@
 					<li><a href="#camera" data-toggle="tab">
 						<span class="glyphicon glyphicon-camera"></span>
 						&nbsp&nbspSnap
+					</a></li>
+					<li><a href="#howto" data-toggle="tab">
+						<span class="glyphicon glyphicon-question-sign"></span>
+						&nbsp&nbspHow To
 					</a></li>
 				</ul>
 			</div>
@@ -82,7 +86,6 @@
 					</a>
 				</div>
 				<h3>Popular Coupons</h3>
-				
 			</div>
 			<div class="tab-pane" id="available">
 				<h3>Available Coupons</h3>
@@ -103,10 +106,14 @@
 					<input type="submit" value="Upload">
 				</form>
 			</div>
+			<div class="tab-pane" id="howto">
+				<h1>How to save using Clipped</h1>				
+			</div>
 			<div class="tab-pane" id="checkout">
 				<h1>Check me out!</h1>
 				<p>Here is your generated coupon! Happy savings!</p>
 				<image src="images/placeholder.png">
+				<p>Present this at the register during checkout!</p>
 			</div>
 		</div>
 	</div>
@@ -120,7 +127,7 @@
 					<h4 class="modal-title" id="walletLabel">myClip</h4>
 				</div>
 				<div class="modal-body">
-					There is nothing in your wallet.
+					Start clipping and start saving!
 				</div>
 				<div class="modal-footer">
 					<a href="#checkout" data-toggle="tab" id="checkoutBtn">

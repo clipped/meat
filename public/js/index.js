@@ -9,6 +9,7 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
+	// AJAX to populate list of coupons
 	$.get("coupons", {sort: "", popular: 1}, function(data) {
 		$("#popular").append(data);
 		$.get("coupons", {sort: "", popular: 0}, function(data) {
@@ -18,7 +19,14 @@ function initializePage() {
 		});
 	});
 
-	$("#checkoutBtn").click(function(){
+	// Click handler for "checkout" i.e. Generate QR Code btn
+	$("#checkoutBtn").click(function(e){
+		// Flash message when there are no items in myClip
+		if(parseInt($(".badge").text()) == 0) {
+			e.preventDefault();
+			$(".modal-body").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+			return false;
+		}
 		// hide modal when checkout btn is clicked
 		$("#walletModal").modal("hide");
 		// remove highlighting of nav tab by removing active class
@@ -27,10 +35,36 @@ function initializePage() {
 
 	// Auto collapse nav menu when link is clicked
 	$(".navbar-collapse .nav a").click(function() {
-	    $(".navbar-toggle").click();
+		$(".navbar-toggle").click();
+	});
+
+	// Filtering coupons
+	$("#couponFilter").keyup(function(){
+		// Retrieve the input field text and reset the count to zero
+		var filter = $(this).val(), count = 0;
+ 
+		// Loop through the comment list
+		$("#available li").each(function(){
+			// If the list item does not contain the text phrase fade it out
+			if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+				$(this).fadeOut();
+ 
+			// Show the list item if the phrase matches and increase the count by 1
+			} else {
+				$(this).show();
+				count++;
+			}
+		});
+ 
+		// Update the count
+		var numberItems = count;
+		$("#filter-count").text("Number of Comments = "+count);
 	});
 }
 
+/*
+ *	Click handler for adding a coupon to myClip
+ */
 function addCoupon(e) {
 	e.preventDefault();
 
@@ -38,16 +72,20 @@ function addCoupon(e) {
 	var num = parseInt($(".badge").text()) + 1;
 	$(".badge").text(num);
 
-	var className = $(this).closest("li").attr("class").split(" ")[1];
-	var childrenSpan = $("." + className).find("span");
+	// Get the coupon name
+	var couponName = $(this).closest("li").attr("class").split(" ")[1];
+	// Get the glyphicon span
+	var couponGlyph = $("." + couponName).find(".glyphicon");
 
-	// change + icons to check icons
-	childrenSpan.toggleClass("glyphicon-plus glyphicon-check");
-	childrenSpan.parent().unbind("click");
+	// change + icons to check icons and unbind addCoupon
+	couponGlyph.toggleClass("glyphicon-plus glyphicon-check");
+	couponGlyph.parent().unbind("click");
+
+	// Clone the coupon to add to myCLip
+	var couponClone = $("." + couponName).clone()[0];
+	var couponCloneGlyph = $(couponClone).find(".glyphicon");
 
 	// update clone of coupon in myClip
-	var couponClone = $("." + className).clone()[0];
-	var couponCloneGlyph = $(couponClone).find(".glyphicon");
 	couponCloneGlyph.toggleClass("glyphicon-check glyphicon-remove");
 	couponCloneGlyph.parent().click(removeCoupon);
 	
@@ -58,6 +96,9 @@ function addCoupon(e) {
 	$("#walletModal .modal-body ul").append(couponClone);
 }
 
+/*
+ *	Click handler for removing a coupon from myClip
+ */
 function removeCoupon(e) {
 	e.preventDefault();
 
@@ -67,39 +108,46 @@ function removeCoupon(e) {
 
 	var coupon = $(this).closest("li");
 	if(num == 0) {
-		$("#walletModal .modal-body").html('There is nothing in your wallet.');
+		$("#walletModal .modal-body").html('Start clipping and start saving!');
 	} 
 	else {
 		coupon.remove();
 	}
 
-	var className = $(this).closest("li").attr("class").split(" ")[1];
-	var childrenSpan = $("." + className).find("span");
+	// Find coupons to update
+	var couponName = $(this).closest("li").attr("class").split(" ")[1];
+	var couponGlyph = $("." + couponName).find(".glyphicon");
 
 	// change check icons to + icons
-	childrenSpan.toggleClass("glyphicon-check glyphicon-plus");
-	childrenSpan.parent().unbind("click");
-	childrenSpan.parent().click(addCoupon);
-
+	couponGlyph.toggleClass("glyphicon-check glyphicon-plus");
+	couponGlyph.parent().unbind("click");
+	couponGlyph.parent().click(addCoupon);
 }
 
+/*
+ *	Update available coupon list based on sort
+ */
 function getCoupons(sel) {
-    var value = sel.options[sel.selectedIndex].value;
+	var value = sel.options[sel.selectedIndex].value;
 
-    $.get("/coupons?sort="+value, function(data) {
-    	$("#available .couponlist").remove();
-    	$("#available").append(data);
-    	var added = [];
-    	$("#walletModal .modal-body li").each(function() {
-    		added.push("." + $(this).attr('class').split(' ')[1]);
-    	});
-    	added = added.join(", ");
+	$.get("/coupons?sort="+value, function(data) {
+		// Update current list of coupons to sorted data
+		$("#available .couponlist").remove();
+		$("#available").append(data);
 
-    	var availCoupons = $("#available li");
-    	var addedCouponsGlphySpan = availCoupons.filter(added).find("span");
+		// New list of coupons don't have old infomation such as if it were already added or not
+		// Check added coupons and fix the list
+		var added = [];
+		$("#walletModal .modal-body li").each(function() {
+			added.push("." + $(this).attr('class').split(' ')[1]);
+		});
+		added = added.join(", ");
+
+		var availCoupons = $("#available li");
+		var addedCouponsGlphySpan = availCoupons.filter(added).find("span");
 
 		availCoupons.not(added).find(".addCoupon").click(addCoupon);
 		addedCouponsGlphySpan.removeClass("glyphicon-plus");
 		addedCouponsGlphySpan.addClass("glyphicon-check");
-    });
+	});
 }

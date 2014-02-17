@@ -47,7 +47,7 @@
 		{
 			"name": "Large Navel Oranges",
 			"description": "Buy Naval Oranges for $0.99/lb",
-			"store": "Vons",
+			"store": "Sprouts",
 			"expiration": "03/27/14",
 			"imageURL": "images/coupons/navelorange.jpg"			
 		},
@@ -75,21 +75,21 @@
 		{
 			"name": "Wrigley Valentine Exchange Kit",
 			"description": "Buy 2 for $6",
-			"store": "Vons",
+			"store": "Sprouts",
 			"expiration": "03/22/14",
 			"imageURL": "images/coupons/valentineskit.jpg"			
 		},
 		{
 			"name": "Jack Daniel's",
 			"description": "Buy a handle for $16.99",
-			"store": "Vons",
+			"store": "Ralphs",
 			"expiration": "03/22/14",
 			"imageURL": "images/coupons/jackdan.jpg"			
 		},
 		{
 			"name": "Bacardi Light or Gold",
 			"description": "Buy a 1.75 liter handle for $18.99",
-			"store": "Vons",
+			"store": "Ralphs",
 			"expiration": "03/22/14",
 			"imageURL": "images/coupons/bacardi.jpg"			
 		},

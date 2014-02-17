@@ -12,10 +12,16 @@ body {
     left: 0;
 }
 
+.modal .modal-body {
+    max-height: 420px;
+    overflow-y: auto;
+}
+
 .navbar-brand img {
     display: block;
     margin: auto;
 }
+
 .modal-dialog {
 	max-width: 80%;
 	margin: 50px auto;
@@ -47,10 +53,6 @@ body {
     -webkit-box-shadow: 0 0 5px 1px #afaeae;
 }
 
-/*.couponThumbnail {
-    max-width: 64px;
-}*/
-
 .media-heading {
     font-weight: bolder;
 }
@@ -58,10 +60,6 @@ body {
 .tab-content {
     padding-top: 50px;
 }
-
-/*.glyphicon-plus {
-       color: #034F25; 
-}*/
 
 #green3 {
     background-color: #EAF8DD;
