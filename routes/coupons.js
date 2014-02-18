@@ -1,3 +1,4 @@
+
 var data =  require('../data.json');
 
 exports.view = function(req, res){
@@ -16,8 +17,47 @@ exports.view = function(req, res){
 		coupons.sort(function(a,b) {
 			var da = new Date(a.expiration),
 				db = new Date(b.expiration);
-			return a < b;
+			if( da < db)
+				return -1;
+			else if(da > db)
+				return 1;
+			else{
+				if( a.name.toLowerCase() < b.name.toLowerCase())
+					return -1;
+				if( a.name.toLowerCase() > b.name.toLowerCase() )
+					return 1;
+			}
+			return 0;
+
 		});
 	}
+
+	else if(sort == "Name"){
+	coupons.sort(function(a,b) {
+		if( a.name.toLowerCase() < b.name.toLowerCase())
+			return -1;
+		if( a.name.toLowerCase() > b.name.toLowerCase() )
+			return 1;
+		return 0;
+		});	
+	}
+
+	else if(sort == "Store"){
+		coupons.sort(function(a,b){
+			if( a.store.toLowerCase() < b.name.toLowerCase() )
+				return -1;
+			else if( a.store.toLowerCase() > b.name.toLowerCase() )
+				return 1;
+			else{
+				if( a.name.toLowerCase() < b.name.toLowerCase())
+					return -1;
+				if( a.name.toLowerCase() > b.name.toLowerCase() )
+					return 1;
+			}
+			return 0;
+		});
+	}
+
 	res.render("partials/coupons", {"coupons":coupons});
 };
+
