@@ -17,7 +17,7 @@
     "express": "3.x",
     "express3-handlebars": "*",
     "nan": "~0.7.0",
-    "canvas": "*",
+    "canvas": "git://github.com/elspoono/node-canvas-heroku.git",
     "jsqrcode": "*", 
   },
   "engines": {
