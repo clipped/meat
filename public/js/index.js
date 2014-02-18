@@ -60,6 +60,22 @@ function initializePage() {
 		var numberItems = count;
 		$("#filter-count").text("Number of Comments = "+count);
 	});
+
+	$("#uploadBtn").click(function(e) {
+		//e.preventDefault();
+		var f = "http://www.ekaterinawalter.com/wp-content/uploads/2013/08/qr.png";
+		qrcode.callback = function(a){
+			alert(a);
+		};
+			try {
+				qrcode.decode(f);
+				console.log("sljdf" + result);
+			}catch(e) {
+				console.log("woop");
+			}
+		
+		//return false;
+	});
 }
 
 /*

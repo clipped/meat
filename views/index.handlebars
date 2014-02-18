@@ -101,9 +101,9 @@
 			</div>
 			<div class="tab-pane" id="camera">
 				<h1>Camera</h1>
-				<form action="" method="post" enctype="multipart/form-data">
-					<input id="chooseFileBtn" type="file" accept="image/*" capture>
-					<input type="submit" value="Upload">
+				<form method="post" enctype="multipart/form-data" action="/upload" id="cameraForm">
+					<input id="chooseFileBtn" type="file" name="file" accept="image/*" capture>
+					<input id="uploadBtn" type="submit" value="Upload">
 				</form>
 			</div>
 			<div class="tab-pane" id="howto">
@@ -112,7 +112,7 @@
 			<div class="tab-pane" id="checkout">
 				<h1>Check me out!</h1>
 				<p>Here is your generated coupon! Happy savings!</p>
-				<image src="images/placeholder.png">
+				<image src="images/qrcode.png">
 				<p>Present this at the register during checkout!</p>
 			</div>
 		</div>
@@ -139,6 +139,23 @@
 	</div>
 
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<script type="text/javascript" src="/js/grid.js"></script>
+	<script type="text/javascript" src="/js/version.js"></script>
+	<script type="text/javascript" src="/js/detector.js"></script>
+	<script type="text/javascript" src="/js/formatinf.js"></script>
+	<script type="text/javascript" src="/js/errorlevel.js"></script>
+	<script type="text/javascript" src="/js/bitmat.js"></script>
+	<script type="text/javascript" src="/js/datablock.js"></script>
+	<script type="text/javascript" src="/js/bmparser.js"></script>
+	<script type="text/javascript" src="/js/datamask.js"></script>
+	<script type="text/javascript" src="/js/rsdecoder.js"></script>
+	<script type="text/javascript" src="/js/gf256poly.js"></script>
+	<script type="text/javascript" src="/js/gf256.js"></script>
+	<script type="text/javascript" src="/js/decoder.js"></script>
+	<script type="text/javascript" src="/js/qrcode.js"></script>
+	<script type="text/javascript" src="/js/findpat.js"></script>
+	<script type="text/javascript" src="/js/alignpat.js"></script>
+	<script type="text/javascript" src="/js/databr.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/index.js"></script>
 </body>

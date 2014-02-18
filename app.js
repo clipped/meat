@@ -42,6 +42,9 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.get('/coupons', coupons.view);
+app.post('/upload', function(req, res) {
+
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
