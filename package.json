@@ -1,11 +1,11 @@
 {
-  "name": "IntroHCI",
+  "name": "clipped",
   "version": "0.0.1",
   "author": "Intro HCI Staff",
 
   "repository": {
     "type": "git",
-    "url": "https://github.com/IntroHCI/lab4"
+    "url": "https://github.com/clipped/meat"
   },
   "license": "MIT",
 
@@ -17,7 +17,13 @@
     "express": "3.x",
     "express3-handlebars": "*",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "canvas": "git://github.com/elspoono/node-canvas-heroku.git",
+    "jsqrcode": "*"
+
+  },
+  "devDependencies": {
+    "canvas": "*"
   },
   "engines": {
     "node": "0.10.x"

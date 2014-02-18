@@ -61,21 +61,10 @@ function initializePage() {
 		$("#filter-count").text("Number of Comments = "+count);
 	});
 
-	$("#uploadBtn").click(function(e) {
-		//e.preventDefault();
-		var f = "http://www.ekaterinawalter.com/wp-content/uploads/2013/08/qr.png";
-		qrcode.callback = function(a){
-			alert(a);
-		};
-			try {
-				qrcode.decode(f);
-				console.log("sljdf" + result);
-			}catch(e) {
-				console.log("woop");
-			}
-		
-		//return false;
-	});
+	$("#cameraForm").ajaxForm({dataType: "json", success: function(rspTxt) {
+		// Do something w/ rspTxt which is a json object
+		console.log(rspTxt);
+	}});
 }
 
 /*
