@@ -35,7 +35,8 @@ function initializePage() {
 
 	// Auto collapse nav menu when link is clicked
 	$(".navbar-collapse .nav a").click(function() {
-		$(".navbar-toggle").click();
+		if(parseInt($(window).width()) < 768 )
+			$(".navbar-toggle").click();
 	});
 
 	// Filtering coupons
