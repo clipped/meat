@@ -62,9 +62,13 @@ function initializePage() {
 		$("#filter-count").text("Number of Comments = "+count);
 	});
 
+	$(".modal .modal-body").css("max-height", parseInt($(window).height()*0.5));
+
 	$("#cameraForm").ajaxForm({dataType: "json", success: function(rspTxt) {
 		// Do something w/ rspTxt which is a json object
 		console.log(rspTxt);
+		$("#cameraForm").append("<br><img src='images/tmp/"+rspTxt.src+"'>");
+		
 	}});
 }
 

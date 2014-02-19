@@ -13,8 +13,11 @@ body {
 }
 
 .modal .modal-body {
-    max-height: 420px;
     overflow-y: auto;
+}
+
+.modal-body {
+    padding: 15px;
 }
 
 .navbar-brand img {

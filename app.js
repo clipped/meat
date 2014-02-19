@@ -64,7 +64,7 @@ app.post('/upload', function(req, res, next) {
 	};
 	image.src = req.files.file.path;
 	// Maybe we want to return a coupon json object?
-	res.json({result: result, path: image.src});
+	res.json({result: result, src: path.basename(image.src)});
 });
 
 http.createServer(app).listen(app.get('port'), function(){
