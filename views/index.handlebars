@@ -60,9 +60,15 @@
 						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 						<li data-target="#myCarousel" data-slide-to="1" class=""></li>
 						<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+						<li data-target="#myCarousel" data-slide-to="3" class=""></li>
 					</ol>
 					<div class="carousel-inner">
 						<div class="item active">
+							<img src="images/featuringplaceholder.png" alt="" style="margin: 0 auto;">
+							<div class="carousel-caption">
+							</div>
+						</div>
+						<div class="item">
 							<img src="images/featured1.png" alt="" style="margin: 0 auto;">
 							<div class="carousel-caption">
 							</div>
@@ -86,9 +92,14 @@
 					</a>
 				</div>
 				<h3>Popular Coupons</h3>
+				<h5>Check out the <b>top 5</b> Clipped coupons that are currently on everybody's myClip</h5>
+				<br>
 			</div>
 			<div class="tab-pane" id="available">
 				<h3>Available Coupons</h3>
+				<h5>A list of everything we are offering you! Go crazy ;)</h5>
+				<br>
+				<h4>Find</h4>
 				<form class="form-inline" role="form">
 					<input type="text" class="form-control filter" id="couponFilter" placeholder="Filter">
 					<select class="form-control filter" id="sortBy" onchange="getCoupons(this)">
@@ -98,20 +109,30 @@
 						<option>Name</option>
 					</select>
 				</form>
+				<br>
+				<h4>On the board</h4>
 			</div>
 			<div class="tab-pane" id="camera">
 				<h1>Camera</h1>
+				<h5>Access your mobile's camera to take a picture of your grocery paper ads!</h5>
+				<br>
 				<form method="post" enctype="multipart/form-data" action="/upload" id="cameraForm">
 					<input id="chooseFileBtn" type="file" name="file" accept="image/*" capture>
 					<input id="uploadBtn" type="submit" value="Upload">
 				</form>
 			</div>
 			<div class="tab-pane" id="howto">
-				<h1>How to save using Clipped</h1>				
+				<h1>Guide on how to use Clipped</h1>
+				<h5>New to Clipped and curious on how to utilize it? You came to the right place!</h5>
+				<hr>
+				<!--Take screenshots, insert them below, does fancybox work on mobile?-->
+				<p>Step-by-step on how to use this mobile web app w/ screenshots ??</p>
+				<hr>
+				<h5>If you have further questions, feel free to contact us @ ----. Happy savings!</h5>			
 			</div>
 			<div class="tab-pane" id="checkout">
 				<h1>Check me out!</h1>
-				<p>Here is your generated coupon! Happy savings!</p>
+				<hp>Here is your generated coupon! Happy savings!</p>
 				<image src="images/qrcode.png">
 				<p>Present this at the register during checkout!</p>
 			</div>
