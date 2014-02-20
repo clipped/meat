@@ -118,8 +118,13 @@
 				<br>
 				<form method="post" enctype="multipart/form-data" action="/upload" id="cameraForm">
 					<input id="chooseFileBtn" type="file" name="file" accept="image/*" capture>
+					<input type="text" name="title" placeholder="Coupon Name">
 					<input id="uploadBtn" type="submit" value="Upload">
+
 				</form>
+				<br>
+				<ul class="media-list couponlist">
+				</ul>
 			</div>
 			<div class="tab-pane" id="howto">
 				<h1>Guide on how to use Clipped</h1>

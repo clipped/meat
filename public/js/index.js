@@ -67,8 +67,8 @@ function initializePage() {
 	$("#cameraForm").ajaxForm({dataType: "json", success: function(rspTxt) {
 		// Do something w/ rspTxt which is a json object
 		console.log(rspTxt);
-		$("#cameraForm").append("<br><img src='images/tmp/"+rspTxt.src+"'>");
-		
+		$("#camera ul").append('<li class="media ' + rspTxt.className + '"><a class="pull-left disable"><img class="media-object couponThumbnail" src="images/tmp/'+rspTxt.src+ '" alt="..."></a><div class="media-body"><h4 class="media-heading">'+ rspTxt.title + '<a class="pull-right addCoupon"><span class="glyphicon glyphicon-plus"></span></a></h4><br>' + rspTxt.result + '<br></div></li>');
+		$("#camera ul li").last().find(".addCoupon").click(addCoupon);
 	}});
 }
 

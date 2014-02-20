@@ -86,6 +86,10 @@ body {
     cursor: default;
 }
 
+.couponThumbnail {
+    max-width: 64px;
+}
+
 hr {
   border-style: dashed;
 }
