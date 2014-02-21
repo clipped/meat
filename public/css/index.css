@@ -93,3 +93,7 @@ body {
 hr {
   border-style: dashed;
 }
+
+.thumb {
+    width: 100px;
+}
