@@ -85,3 +85,11 @@ body {
     pointer-events: none;
     cursor: default;
 }
+
+.couponThumbnail {
+    max-width: 64px;
+}
+
+hr {
+  border-style: dashed;
+}
