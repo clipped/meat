@@ -21,11 +21,14 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', handlebars({
 	helpers: {
-		couponClassName : function(name) {
-			return (name.replace(/[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~\s]/g, '').toLowerCase());
-		}
+		couponClassName : generateClassName
 	}
 }));
+
+function generateClassName(name) {
+			return (name.replace(/[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~\s]/g, '').toLowerCase());
+}
+
 app.set('view engine', 'handlebars');
 app.use(express.favicon());
 app.use(express.logger('dev'));
@@ -47,6 +50,7 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/coupons', coupons.view);
 app.post('/upload', function(req, res, next) {
+	//console.log(req.body);
 	// may want to remove tmp files created during upload, 
 	// check out from nodejs api the 'fs' module
 	// use readdir, unlink, stat  to remove remove old uploaded images
@@ -64,7 +68,12 @@ app.post('/upload', function(req, res, next) {
 	};
 	image.src = req.files.file.path;
 	// Maybe we want to return a coupon json object?
-	res.json({result: result, src: path.basename(image.src)});
+	res.json({
+		result: result, 
+		src: path.basename(image.src), 
+		title: req.body.title,
+		className: generateClassName(req.body.title)
+	});
 });
 
 http.createServer(app).listen(app.get('port'), function(){
