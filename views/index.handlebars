@@ -21,7 +21,7 @@
 				<span class="icon-bar" id="green3"></span>
 				</button>
 			</div>
-			<div class="navbar-brand"><a href="#popular" data-toggle="tab"><img src="images/logo.png"></a></div>
+			<div class="navbar-brand"><a href="#home" data-toggle="tab"><img src="images/logo.png"></a></div>
 			<div class="pull-right">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a id="wallet" data-toggle="modal" href="#walletModal">myClip <span class="badge">0</span></a></li>
@@ -29,7 +29,11 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#popular" data-toggle="tab">
+					<li class="active"><a href="#home" data-toggle="tab">
+						<span class="glyphicon glyphicon-home"></span>
+						&nbsp&nbspHome
+					</a></li>
+					<li><a href="#popular" data-toggle="tab">
 						<span class="glyphicon glyphicon-star"></span>
 						&nbsp&nbspPopular
 					</a></li>
@@ -52,9 +56,8 @@
 
 	<div class="container-fluid">
 		<div class="tab-content">
-			<div class="tab-pane active" id="popular">
-				<!--<h1>popular</h1>-->
-				<!--<h3>Featured Coupons</h3>-->
+			<div class="tab-pane active" id="home">
+				<h3>Welcome</h3>
 				<div id="myCarousel" class="carousel slide">
 					<ol class="carousel-indicators">
 						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -91,16 +94,17 @@
 						<span class="glyphicon glyphicon-chevron-right"></span>
 					</a>
 				</div>
+				<br>
 				<div class="row">
-					<div class="col-xs-6 col-sm-4"><a href="#popular" data-toggle="tab"><img src="images/popular.png" class="thumb"></a></div>
-			  		<div class="col-xs-6 col-sm-4"><a href="#available" data-toggle="tab"><img src="images/popular.png" class="thumb"></a></div>
-			  		<!-- Optional: clear the XS cols if their content doesn't match in height -->
-			  		<div class="clearfix visible-xs"></div>
-			  		<div class="col-xs-6 col-sm-4" ><a href="#camera" data-toggle="tab"><img src="images/popular.png" class="thumb"></a></div>
+					<div class="col-xs-4 col-sm-3"><a href="#popular" data-toggle="tab"><img src="images/popular.png" class="thumb"></a></div>
+			  		<div class="col-xs-4 col-sm-3"><a href="#available" data-toggle="tab"><img src="images/available.png" class="thumb"></a></div>
+			  		<div class="col-xs-4 col-sm-3" ><a href="#camera" data-toggle="tab"><img src="images/snap.png" class="thumb"></a></div>
 				</div>
+			<div class="tab-pane" id="popular">
 				<h3>Popular Coupons</h3>
 				<h5>Check out the <b>top 5</b> Clipped coupons that are currently on everybody's myClip</h5>
 				<br>
+			</div>
 			</div>
 			<div class="tab-pane" id="available">
 				<h3>Available Coupons</h3>
