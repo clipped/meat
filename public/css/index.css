@@ -49,7 +49,7 @@ body {
     }
 
     .navbar>.container-fluid .navbar-brand {
-        margin-left: 0px;
+        margin-left: 10px;
         width: initial;
     }
 }

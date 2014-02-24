@@ -24,8 +24,10 @@ function initializePage() {
 		// Flash message when there are no items in myClip
 		if(parseInt($(".badge").text()) == 0) {
 			e.preventDefault();
-			$(".modal-body").css("color", "red");
-			$(".modal-body").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+		//	$(".modal-body").css("color", "red");
+		//	$(".modal-body").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+			$(".modal-body").animate({color: "#fff", backgroundColor: "#aa0000"}, 300);
+			$(".modal-body").animate({color: "#000", backgroundColor: "#fff"}, 300);
 			return false;
 		}
 		// hide modal when checkout btn is clicked
@@ -35,7 +37,8 @@ function initializePage() {
 	});
 
 	// Auto collapse nav menu when link is clicked
-	$(".navlink").click(function() {
+	$(".navlink").click(function(e) {
+		e.preventDefault();
 		if(parseInt($(window).width()) < 768 ) {
 			if($("#navbar-collapse").hasClass("in")) {
 				$(".navbar-toggle").click();
@@ -47,7 +50,11 @@ function initializePage() {
 		var newActive = $(this).attr("href");
 		$(".navbar-nav li a").each(function(i) {
 			if($(this).attr("href") == newActive) {
-				$(this).parent().addClass("active");
+				var activeTab = $(this).parent();
+				setTimeout(function() {
+					activeTab.addClass("active");
+				}, 400);
+				$(this).tab("show");
 				return;
 			}
 		});
