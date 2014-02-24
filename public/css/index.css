@@ -10,6 +10,8 @@ body {
     position: absolute;
     width: 100%;
     left: 0;
+    padding: 0px;
+    height: 0px;
 }
 
 .modal .modal-body {
@@ -96,4 +98,14 @@ hr {
 
 .thumb {
     width: 95px;
+}
+
+.col-xs-4 {
+    text-align: center;
+}
+
+.logo-div {
+    width: 115px;
+    padding-top: 12px;
+    margin: auto;
 }

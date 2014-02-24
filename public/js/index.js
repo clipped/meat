@@ -24,6 +24,7 @@ function initializePage() {
 		// Flash message when there are no items in myClip
 		if(parseInt($(".badge").text()) == 0) {
 			e.preventDefault();
+			$(".modal-body").css("color", "red");
 			$(".modal-body").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 			return false;
 		}
@@ -34,32 +35,38 @@ function initializePage() {
 	});
 
 	// Auto collapse nav menu when link is clicked
-	$(".navbar-collapse .nav a").click(function() {
-		if(parseInt($(window).width()) < 768 )
-			$(".navbar-toggle").click();
+	$(".navlink").click(function() {
+		if(parseInt($(window).width()) < 768 ) {
+			if($("#navbar-collapse").hasClass("in")) {
+				$(".navbar-toggle").click();
+			}
+		}
+
+		// update active tab in menu 
+		$(".navbar-nav").find(".active").removeClass("active");
+		var newActive = $(this).attr("href");
+		$(".navbar-nav li a").each(function(i) {
+			if($(this).attr("href") == newActive) {
+				$(this).parent().addClass("active");
+				return;
+			}
+		});
 	});
 
 	// Filtering coupons
 	$("#couponFilter").keyup(function(){
 		// Retrieve the input field text and reset the count to zero
-		var filter = $(this).val(), count = 0;
+		var filter = $(this).val();
  
 		// Loop through the comment list
 		$("#available li").each(function(){
 			// If the list item does not contain the text phrase fade it out
 			if ($(this).text().search(new RegExp(filter, "i")) < 0) {
 				$(this).fadeOut();
- 
-			// Show the list item if the phrase matches and increase the count by 1
 			} else {
 				$(this).show();
-				count++;
 			}
 		});
- 
-		// Update the count
-		var numberItems = count;
-		$("#filter-count").text("Number of Comments = "+count);
 	});
 
 	$(".modal .modal-body").css("max-height", parseInt($(window).height()*0.5-50));

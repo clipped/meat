@@ -21,31 +21,37 @@
 				<span class="icon-bar" id="green3"></span>
 				</button>
 			</div>
-			<div class="navbar-brand"><a href="#home" data-toggle="tab"><img src="images/logo.png"></a></div>
+			<div class="navbar-brand">
+				<div class="logo-div">
+					<a href="#home" data-toggle="tab" class="navlink">
+						<img src="images/logo.png">
+					</a>
+				</div>
+			</div>
 			<div class="pull-right">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a id="wallet" data-toggle="modal" href="#walletModal">myClip <span class="badge">0</span></a></li>
 				</ul>
 			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse">
+			<div class="navbar-collapse collapse" id="navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#home" data-toggle="tab">
+					<li class="active"><a href="#home" data-toggle="tab" class="navlink">
 						<span class="glyphicon glyphicon-home"></span>
 						&nbsp&nbspHome
 					</a></li>
-					<li><a href="#popular" data-toggle="tab">
+					<li><a href="#popular" data-toggle="tab" class="navlink">
 						<span class="glyphicon glyphicon-star"></span>
 						&nbsp&nbspPopular
 					</a></li>
-					<li><a href="#available" data-toggle="tab">
+					<li><a href="#available" data-toggle="tab" class="navlink">
 						<span class="glyphicon glyphicon-th-list"></span>
 						&nbsp&nbspAvailable
 					</a></li>
-					<li><a href="#camera" data-toggle="tab">
+					<li><a href="#camera" data-toggle="tab" class="navlink">
 						<span class="glyphicon glyphicon-camera"></span>
 						&nbsp&nbspSnap
 					</a></li>
-					<li><a href="#howto" data-toggle="tab">
+					<li><a href="#howto" data-toggle="tab" class="navlink">
 						<span class="glyphicon glyphicon-question-sign"></span>
 						&nbsp&nbspHow To
 					</a></li>
@@ -96,9 +102,15 @@
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-xs-4 col-sm-3"><a href="#popular" data-toggle="tab"><img src="images/popular.png" class="thumb"></a></div>
-			  		<div class="col-xs-4 col-sm-3"><a href="#available" data-toggle="tab"><img src="images/available.png" class="thumb"></a></div>
-			  		<div class="col-xs-4 col-sm-3" ><a href="#camera" data-toggle="tab"><img src="images/snap.png" class="thumb"></a></div>
+					<div class="col-xs-4">
+						<a href="#popular" data-toggle="tab" class="navlink"><img src="images/popular.png" class="thumb"></a>
+					</div>
+			  		<div class="col-xs-4">
+			  			<a href="#available" data-toggle="tab" class="navlink"><img src="images/available.png" class="thumb"></a>
+			  		</div>
+			  		<div class="col-xs-4" >
+			  			<a href="#camera" data-toggle="tab" class="navlink"><img src="images/snap.png" class="thumb"></a>
+			  		</div>
 				</div>
 			</div>
 			<div class="tab-pane" id="popular">
@@ -120,11 +132,10 @@
 					</select>
 				</form>
 				<br>
-				<h4>On the board</h4>
 			</div>
 			<div class="tab-pane" id="camera">
 				<h1>Camera</h1>
-				<h5>Access your mobile's camera to take a picture of your grocery paper ads!</h5>
+				<h5>Access your mobile's camera to take a picture of your QR coupon!</h5>
 				<br>
 				<form method="post" enctype="multipart/form-data" action="/upload" id="cameraForm">
 					<input id="chooseFileBtn" type="file" name="file" accept="image/*" capture>
@@ -142,9 +153,9 @@
 				<hr>
 				<!--Take screenshots, insert them below, does fancybox work on mobile?-->
 				<ol class="how-to">
-					<li>Browse our wide selection of coupons; if you're uncertain on where to start, you can check out the <a href="#popular" data-toggle="tab">Popular</a>coupons and see what's trending on everyone's myClip!</li>
-					<li>Utilize the search/filter feature on the <a href="#available" data-toggle="tab">Available</a> page.</li>
-					<li>Try our favorite feature, <a href="#camera" data-toggle="tab">Snap</a> to take a picture of your coupon and save it to your 'myClip'!</li>
+					<li>Browse our wide selection of coupons; if you're uncertain on where to start, you can check out the <a href="#popular" data-toggle="tab" class="navlink">Popular</a>coupons and see what's trending on everyone's myClip!</li>
+					<li>Utilize the search/filter feature on the <a href="#available" data-toggle="tab" class="navlink">Available</a> page.</li>
+					<li>Try our favorite feature, <a href="#camera" data-toggle="tab" class="navlink">Snap</a> to take a picture of your coupon and save it to your 'myClip'!</li>
 					<li>Select the "add" icon to add the coupon into your 'myClip'</li>
 					<li>After you finished browsing, select 'myClip' to view a list of your added coupons. Select 'Generate QR Code' when satisfied.</li>
 					<li>Save your QR code by taking a screenshot of it and saving it to your photostream.</li>
