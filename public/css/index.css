@@ -14,17 +14,21 @@ body {
     height: 0px;
 }
 
+.navbar-brand img {
+    display: block;
+    margin: auto;
+}
+
+.modal-content {
+    border-radius: 0px;
+}
+
 .modal .modal-body {
     overflow-y: auto;
 }
 
 .modal-body {
     padding: 15px;
-}
-
-.navbar-brand img {
-    display: block;
-    margin: auto;
 }
 
 .modal-dialog {
