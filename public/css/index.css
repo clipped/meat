@@ -1,6 +1,8 @@
+/*
 body {
      background-image: url("../images/lightpaperfibers.png");
 }
+*/
 
 .navbar-toggle {
 	float: left;
@@ -58,10 +60,12 @@ body {
     padding-left: 0px;
 }
 
+/*
 .shadow {
     -moz-box-shadow: 0 0 5px 1px #afaeae;
     -webkit-box-shadow: 0 0 5px 1px #afaeae;
 }
+*/
 
 .media-heading {
     font-weight: bolder;
