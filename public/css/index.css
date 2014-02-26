@@ -117,3 +117,13 @@ hr {
     padding-top: 12px;
     margin: auto;
 }
+
+.errMsg {
+    display: none;
+    color: red;
+}
+
+.progress {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}

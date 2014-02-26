@@ -48,9 +48,9 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
+app.get('/test', index.test)
 app.get('/coupons', coupons.view);
 app.post('/upload', function(req, res, next) {
-	//console.log(req.body);
 	// may want to remove tmp files created during upload, 
 	// check out from nodejs api the 'fs' module
 	// use readdir, unlink, stat  to remove remove old uploaded images
@@ -67,12 +67,14 @@ app.post('/upload', function(req, res, next) {
       	}
 	};
 	image.src = req.files.file.path;
+
 	// Maybe we want to return a coupon json object?
 	res.json({
 		result: result, 
 		src: path.basename(image.src), 
 		title: req.body.title,
-		className: generateClassName(req.body.title)
+		className: generateClassName(req.body.title),
+		origFilename: req.files.file.originalFilename
 	});
 });
 

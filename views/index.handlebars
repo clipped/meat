@@ -34,7 +34,7 @@
 					<li>
 						<a id="wallet" data-toggle="modal" href="#walletModal">
 							<span class="glyphicon glyphicon-shopping-cart"></span>
-							<span>0</span>
+							<span id="cartItems">0</span>
 						</a>
 					</li>
 				</ul>
@@ -144,12 +144,16 @@
 				<h5>Access your mobile's camera to take a picture of your QR coupon!</h5>
 				<br>
 				<form method="post" enctype="multipart/form-data" action="/upload" id="cameraForm">
-					<input id="chooseFileBtn" type="file" name="file" accept="image/*" capture>
-					<input type="text" name="title" placeholder="Coupon Name">
+					<input id="chooseFileBtn" type="file" name="file" accept="image/*" capture required>
+					<input type="text" name="title" placeholder="Coupon Name" required>
 					<input id="uploadBtn" type="submit" value="Upload">
-
+					<p class="errMsg" id="invalidQRMsg">Please upload a valid QR code.</p>
+					<p class="errMsg" id="dupCouponMsg">You have already uploaded this coupon.</p>
+					<p class="errMsg" id="dupCouponNameMsg">You have already used this coupon name.</p>
 				</form>
-				<br>
+				<div class="progress progress-striped active">
+					<div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">0%</div>
+				</div>
 				<ul class="media-list couponlist">
 				</ul>
 			</div>
@@ -189,18 +193,18 @@
 					</h4>
 				</div>
 				<div class="modal-body">
-					Start clipping and start saving!
+					You have not clipped any coupons.
 				</div>
 				<div class="modal-footer">
-					<a href="#checkout" data-toggle="tab" id="checkoutBtn">
-						<button type="button" class="btn btn-sm btn-primary" disabled="disabled">Generate QR Code</button>
+					<a href="#checkout" data-toggle="tab">
+						<button type="button" class="btn btn-sm btn-primary" id="checkoutBtn">Generate QR Code</button>
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/jquery-1.11.0.min.js"></script>
 	<script src="/js/jquery.form.min.js"></script>
 	<script src="/js/jquery-ui-1.10.4.custom.js"></script>
 	<script src="/js/bootstrap.min.js"></script>

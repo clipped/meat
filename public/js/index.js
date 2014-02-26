@@ -19,13 +19,14 @@ function initializePage() {
 		});
 	});
 
+	$("#checkoutBtn").prop('disabled', true);
+
 	// Click handler for "checkout" i.e. Generate QR Code btn
 	$("#checkoutBtn").click(function(e){
+		// The button will be disabled when there are no items.
 		// Flash message when there are no items in myClip
-		if(parseInt($(".badge").text()) == 0) {
+		if(parseInt($("#cartItems").text()) == 0) {
 			e.preventDefault();
-		//	$(".modal-body").css("color", "red");
-		//	$(".modal-body").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 			$(".modal-body").animate({color: "#fff", backgroundColor: "#aa0000"}, 300);
 			$(".modal-body").animate({color: "#000", backgroundColor: "#fff"}, 300);
 			return false;
@@ -78,12 +79,74 @@ function initializePage() {
 
 	$(".modal .modal-body").css("max-height", parseInt($(window).height()*0.5-50));
 
-	$("#cameraForm").ajaxForm({dataType: "json", success: function(rspTxt) {
-		// Do something w/ rspTxt which is a json object
-		console.log(rspTxt);
-		$("#camera ul").append('<li class="media ' + rspTxt.className + '"><a class="pull-left disable"><img class="media-object couponThumbnail" src="images/tmp/'+rspTxt.src+ '" alt="..."></a><div class="media-body"><h4 class="media-heading">'+ rspTxt.title + '<a class="pull-right addCoupon"><span class="glyphicon glyphicon-plus"></span></a></h4><br>' + rspTxt.result + '<br></div></li>');
-		$("#camera ul li").last().find(".addCoupon").click(addCoupon);
-	}});
+	$("#cameraForm").ajaxForm({
+		dataType: "json", 
+		beforeSubmit: checkCouponName, 
+		success: showCoupon, 
+		uploadProgress: progressCallback
+	});
+}
+
+/*
+ *	Pre submit callback for upload form
+ */
+function checkCouponName(formData, jqForm, options) {
+	var fileName = jqForm[0].file.value.split(/[\\/]/).pop();
+	var couponName = jqForm[0].title.value;
+	var generateClassName = function(name) {
+				return (name.replace(/[!\"#$%&'\(\)\*\+,\.\/:;<=>\?\@\[\\\]\^`\{\|\}~\s]/g, '').toLowerCase());
+	}
+	var couponClassName = generateClassName(couponName);
+	var duplicateFile = false;
+
+	$(".errMsg").hide();
+	$(".progress-bar").text("0%");
+	$(".progress-bar").css("width", "0%");
+
+	if($("#camera ul li").hasClass(couponClassName)) {
+		$("#dupCouponNameMsg").show();
+		return false;
+	}
+	$(".origFilenames").each(function(i, e) {
+		if($(this).val() == fileName) {
+			duplicateFile = true;
+			$("#dupCouponMsg").show();
+			return false;
+		}
+	});
+
+	return !duplicateFile;
+}
+
+/* 
+ *	Post submit callback for upload form
+ */
+function showCoupon(rspTxt) {
+	if(!rspTxt.result) {
+		$("#invalidQRMsg").show();
+		return false;
+	}
+	var str;
+	str = '<li class="media ' + rspTxt.className + '">'
+		str += '<a class="pull-left disable">';
+			str += '<img class="media-object couponThumbnail" src="images/tmp/' + rspTxt.src+ '" alt="...">';
+		str += '</a>';
+		str += '<div class="media-body">';
+			str += '<h4 class="media-heading">';
+			str += rspTxt.title; 
+			str += '<a class="pull-right addCoupon"><span class="glyphicon glyphicon-plus"></span></a>';
+			str += '</h4>';
+			str += '<br>' + rspTxt.result + '<br>';
+			str += '<input type="hidden" class="origFilenames" value="' + rspTxt.origFilename + '">';
+		str += '</div>';
+	str += '</li>';
+	$("#camera ul").append(str);
+	$("#camera ul li").last().find(".addCoupon").click(addCoupon);
+}
+
+function progressCallback(e, pos, total, percent) {
+	$(".progress-bar").text(percent+"%");
+	$(".progress-bar").css("width", percent+"%");
 }
 
 /*
@@ -92,9 +155,9 @@ function initializePage() {
 function addCoupon(e) {
 	e.preventDefault();
 
-	// change badge text (num items in myClip)
-	var num = parseInt($(".badge").text()) + 1;
-	$(".badge").text(num);
+	// change cartItems text (num items in myClip)
+	var num = parseInt($("#cartItems").text()) + 1;
+	$("#cartItems").text(num);
 
 	// Get the coupon name
 	var couponName = $(this).closest("li").attr("class").split(" ")[1];
@@ -114,8 +177,10 @@ function addCoupon(e) {
 	couponCloneGlyph.parent().click(removeCoupon);
 	
 	// add item to myClip
-	if(num == 1) 
+	if(num == 1) {
 		$("#walletModal .modal-body").html('<ul class="media-list"></ul>');
+		$("#checkoutBtn").prop("disabled", false);
+	}
 
 	$("#walletModal .modal-body ul").append(couponClone);
 }
@@ -126,13 +191,14 @@ function addCoupon(e) {
 function removeCoupon(e) {
 	e.preventDefault();
 
-	// change badge text (num items in myClip)
-	var num = parseInt($(".badge").text()) - 1;
-	$(".badge").text(num);
+	// change cartItems text (num items in myClip)
+	var num = parseInt($("#cartItems").text()) - 1;
+	$("#cartItems").text(num);
 
 	var coupon = $(this).closest("li");
 	if(num == 0) {
-		$("#walletModal .modal-body").html('Start clipping and start saving!');
+		$("#walletModal .modal-body").html('You have not clipped any coupons.');
+		$("#checkoutBtn").prop("disabled", true);
 	} 
 	else {
 		coupon.remove();
