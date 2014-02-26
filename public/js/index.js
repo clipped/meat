@@ -114,7 +114,8 @@ function checkCouponName(formData, jqForm, options) {
 			return false;
 		}
 	});
-
+	if(!duplicateFile)
+		$("#uploadBtn").prop("disabled", true);
 	return !duplicateFile;
 }
 
@@ -126,6 +127,7 @@ function showCoupon(rspTxt) {
 		$("#invalidQRMsg").show();
 		return false;
 	}
+	$("#uploadBtn").prop("disabled", false);
 	var str;
 	str = '<li class="media ' + rspTxt.className + '">'
 		str += '<a class="pull-left disable">';
