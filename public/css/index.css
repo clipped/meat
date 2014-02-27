@@ -127,3 +127,67 @@ hr {
     margin-top: 6px;
     margin-bottom: 6px;
 }
+
+.contentcenter {
+    text-align: center;
+}
+
+.short {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-style: solid;
+    max-width: 50px;
+}
+
+h3 {
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 20px 0 10px 0;
+}
+
+p {
+    font-family: georgia, times, 'times new roman', serif;
+    line-height: 1.4em; 
+    font-style: italic; 
+    max-width: 300px; 
+    margin: 0 auto;
+}
+
+/*Hopefully making the fucking image responsive*/
+img.ri
+{
+    position: absolute;
+    max-width: 90%;
+    top: 10%;
+    left: 10%;
+}
+
+img.ri:empty
+{
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (orientation: portrait) {
+  img.ri { max-width: 110%; }
+}
+
+@media screen and (orientation: landscape) {
+  img.ri { max-height: 110%; }
+}
+
+.homebutton {
+    position: relative;
+    top: 227px;
+}
+
+.imgspace {
+    padding-top: 30px;
+}
