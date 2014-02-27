@@ -144,9 +144,11 @@
 				<h5>Access your mobile's camera to take a picture of your QR coupon!</h5>
 				<br>
 				<form method="post" enctype="multipart/form-data" action="/upload" id="cameraForm">
-					<input id="chooseFileBtn" type="file" name="file" accept="image/*" capture required>
-					<input type="text" name="title" placeholder="Coupon Name" required>
-					<input id="uploadBtn" type="submit" value="Upload">
+					<input id="chooseFileBtn" type="file" name="file" accept="image/*" capture >
+					<input type="text" name="title" placeholder="Coupon Name" >
+					<button id="uploadBtn" type="submit" class="btn btn-primary btn-sm">Upload</button>
+					<p class="errMsg" id="noFileMsg">Please scan a QR code.</p>
+					<p class="errMsg" id="noNameMsg">Please name your coupon.</p>
 					<p class="errMsg" id="invalidQRMsg">Please upload a valid QR code.</p>
 					<p class="errMsg" id="dupCouponMsg">You have already uploaded this coupon.</p>
 					<p class="errMsg" id="dupCouponNameMsg">You have already used this coupon name.</p>

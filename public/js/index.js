@@ -103,10 +103,22 @@ function checkCouponName(formData, jqForm, options) {
 	$(".progress-bar").text("0%");
 	$(".progress-bar").css("width", "0%");
 
+	// No file selected
+	if(!jqForm[0].file.value){
+		$("#noFileMsg").show();
+		return false;
+	}
+	// No name inputted
+	if(!couponName){
+		$("#noNameMsg").show();
+		return false;
+	}
+	// Check if name is used
 	if($("#camera ul li").hasClass(couponClassName)) {
 		$("#dupCouponNameMsg").show();
 		return false;
 	}
+	// Check if file has been uploaded already
 	$(".origFilenames").each(function(i, e) {
 		if($(this).val() == fileName) {
 			duplicateFile = true;
@@ -114,8 +126,10 @@ function checkCouponName(formData, jqForm, options) {
 			return false;
 		}
 	});
-	if(!duplicateFile)
+	// Disable upload button when uploading
+	if(!duplicateFile) {
 		$("#uploadBtn").prop("disabled", true);
+	}
 	return !duplicateFile;
 }
 
@@ -123,11 +137,12 @@ function checkCouponName(formData, jqForm, options) {
  *	Post submit callback for upload form
  */
 function showCoupon(rspTxt) {
+	// Enable upload button when done
+	$("#uploadBtn").prop("disabled", false);
 	if(!rspTxt.result) {
 		$("#invalidQRMsg").show();
 		return false;
 	}
-	$("#uploadBtn").prop("disabled", false);
 	var str;
 	str = '<li class="media ' + rspTxt.className + '">'
 		str += '<a class="pull-left disable">';
