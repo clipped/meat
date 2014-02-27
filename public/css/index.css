@@ -147,7 +147,7 @@ h3 {
     margin: 20px 0 10px 0;
 }
 
-h1 {
+h2 {
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0.1em;
@@ -174,7 +174,7 @@ img.ri
 
 img.ri:empty
 {
-    top: 50%;
+    top: 31%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
@@ -193,7 +193,7 @@ img.ri:empty
 
 .homebutton {
     position: relative;
-    top: 657px;
+    top: 357px;
 }
 
 .imgspace {
