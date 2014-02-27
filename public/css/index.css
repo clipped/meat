@@ -147,6 +147,14 @@ h3 {
     margin: 20px 0 10px 0;
 }
 
+h1 {
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 20px 0 10px 0;
+}
+
 p {
     font-family: georgia, times, 'times new roman', serif;
     line-height: 1.4em; 
@@ -159,14 +167,14 @@ p {
 img.ri
 {
     position: absolute;
-    max-width: 90%;
+    max-width: 100%;
     top: 10%;
     left: 10%;
 }
 
 img.ri:empty
 {
-    top: 30%;
+    top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
@@ -185,7 +193,7 @@ img.ri:empty
 
 .homebutton {
     position: relative;
-    top: 227px;
+    top: 657px;
 }
 
 .imgspace {
