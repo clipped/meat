@@ -24,6 +24,7 @@
 			</div>
 			<div class="navbar-brand">
 				<div class="logo-div">
+					<!--Need to link this to the welcome page-->
 					<a href="#home" data-toggle="tab" class="navlink">
 						<img src="images/logo.png">
 					</a>
@@ -41,11 +42,12 @@
 			</div>
 			<div class="navbar-collapse collapse" id="navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#home" data-toggle="tab" class="navlink">
+					<!--Need to link this to welcome.handlebars-->
+					<!--<li class="active"><a href="#home" data-toggle="tab" class="navlink">
 						<span class="glyphicon glyphicon-home"></span>
 						&nbsp&nbspHome
-					</a></li>
-					<li><a href="#popular" data-toggle="tab" class="navlink">
+					</a></li>-->
+					<li class="active"><a href="#popular" data-toggle="tab" class="navlink">
 						<span class="glyphicon glyphicon-star"></span>
 						&nbsp&nbspPopular
 					</a></li>
@@ -57,9 +59,9 @@
 						<span class="glyphicon glyphicon-camera"></span>
 						&nbsp&nbspSnap
 					</a></li>
-					<li><a href="#howto" data-toggle="tab" class="navlink">
+					<li><a href="#about" data-toggle="tab" class="navlink">
 						<span class="glyphicon glyphicon-question-sign"></span>
-						&nbsp&nbspHow To
+						&nbsp&nbspAbout
 					</a></li>
 				</ul>
 			</div>
@@ -68,7 +70,7 @@
 
 	<div class="container-fluid">
 		<div class="tab-content">
-			<div class="tab-pane active" id="home">
+			<!--<div class="tab-pane active" id="home">
 				<div id="myCarousel" class="carousel slide">
 					<ol class="carousel-indicators">
 						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -105,14 +107,6 @@
 						<span class="glyphicon glyphicon-chevron-right"></span>
 					</a>
 				</div>
-				<div class="homebutton">
-					<div class="contentcenter">
-						<p>
-						<span class="glyphicon glyphicon-bookmark"></span>
-						</p>
-						<h2>Intro about this fucking shit</h2>
-						<p>Paragraphs explaining this shit</p>
-					</div>
 					<div class="row imgspace">
 						<div class="col-xs-4">
 							<a href="#popular" data-toggle="tab" class="navlink"><img src="images/popular.png" class="thumb"></a>
@@ -124,9 +118,8 @@
 				  			<a href="#camera" data-toggle="tab" class="navlink"><img src="images/snap.png" class="thumb"></a>
 				  		</div>
 					</div>
-				</div>
-			</div>
-			<div class="tab-pane" id="popular">
+			</div>-->
+			<div class="tab-pane active " id="popular">
 				<div class="contentcenter">
 					<h3>Popular Coupons</h3>
 					<p>Check out the <b>top 5</b> Clipped coupons that are currently on everybody's myClip</p>
@@ -160,14 +153,13 @@
 			</div>
 			<div class="tab-pane" id="camera">
 				<div class="contentcenter">
-					<h3>Camera</h3>
-					<p>Access your mobile's camera to take a picture of your QR coupon!</p>
-					<h5>Write something here</h5>
+					<h3>Snap</h3>
+					<p>Access your mobile's camera to take a picture of your QR coupon and <strong>upload</strong> it to your cart!</p>
 					<hr class="short">
 				</div>
 				<form method="post" enctype="multipart/form-data" action="/upload" id="cameraForm">
-					<input id="chooseFileBtn" type="file" name="file" accept="image/*" capture >
-					<input type="text" name="title" placeholder="Coupon Name" >
+					1. <input id="chooseFileBtn" type="file" name="file" accept="image/*" capture >
+					2. <input type="text" name="title" placeholder="Coupon Name" >
 					<button id="uploadBtn" type="submit" class="btn btn-primary btn-sm">Upload</button>
 					<p class="errMsg" id="noFileMsg">Please scan a QR code.</p>
 					<p class="errMsg" id="noNameMsg">Please name your coupon.</p>
@@ -181,13 +173,13 @@
 				<ul class="media-list couponlist">
 				</ul>
 			</div>
+			<!-- Dont need this anymore
 			<div class="tab-pane" id="howto">
 				<div class="contentcenter">
 					<h3>How to use Clipped</h3>
 					<p>New to Clipped and curious on how to utilize it? You came to the right place!</p>
 					<hr class="short">
 				</div>
-				<!--Take screenshots, insert them below, does fancybox work on mobile?-->
 				<ol class="how-to">
 					<li>Browse our wide selection of coupons; if you're uncertain on where to start, you can check out the <a href="#popular" data-toggle="tab" class="navlink">Popular</a>coupons and see what's trending on everyone's myClip!</li>
 					<li>Utilize the search/filter feature on the <a href="#available" data-toggle="tab" class="navlink">Available</a> page.</li>
@@ -198,12 +190,37 @@
 				</ol>
 				<hr>
 				<h5>Got more unanswered questions? Email us!</h5>			
+			</div>-->
+
+			<div class="tab-pane" id="about">
+				<div class="contentcenter">
+					<h3>About Clipped</h3>
+					<p>First time at Clipped &amp; want to learn more about the app? You came to the right place!</p>
+					<hr class="short">
+					<div class="orange-sub">
+						<h3>Goal</h3>
+						<img src="images/shot1.png" class="thumbnail">
+						<p>Ever feel that you are not getting your money's worth when grocery shopping? Moreover, you just don't want to deal with having paper coupons stuffed in your back pockets and fishing them out at the check-out. We got you. Clipped is an easy way to go paperless and save money! Browse our wide selection of coupons, select the coupons that fit your needs, and create a mega-coupon with our QR code generator! One scan, many savings. 
+						<hr class="short">
+						<h3>Hold up, QR Code? What?</h3>
+						<img src="images/shot1.png" class="thumbnail">
+						<p>Ever feel that you are not getting your money's worth when grocery shopping? Spending a little too much here and there? You know you want to save money in every way you can but you just don't have time to go coupon hunting. Moreover, you just don't want to deal with the idea of having paper coupons stuffed in your back pockets and fishing them out at the check-out. We got you. Clipped is an easy way to go paperless! Browse our wide selection of coupons, select the coupons that fit your needs, and create a mega-coupon with our QR code generator! 
+					</div>
+				</div>
+				<hr class="short">
+				<h5>Got more unanswered questions? Email us!</h5>			
 			</div>
 			<div class="tab-pane" id="checkout">
-				<h1>Clipped checkout</h1>
-				<h5>Here is your generated coupon! Happy savings!</h5>
-				<image src="images/qrcheckout.png">
-				<h5>Present this QR code at the register during checkout!</h5>
+				<div class="contentcenter">
+					<h3>Clipped checkout</h3>
+					<p>Here is your generated coupon!</p>
+					<hr class="short">
+					<div class="orange-sub">
+						<h3>Happy savings!</h3>
+					</div>
+					<image src="images/qrcheckout.png" id="qrcode">
+					<p>Present this QR code at the register during checkout!</p>
+				</div>
 			</div>
 		</div>
 	</div>

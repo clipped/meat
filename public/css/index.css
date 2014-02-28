@@ -157,6 +157,23 @@ h3 {
     margin: 20px 0 10px 0;
 }
 
+.orange-sub h3{
+    font-size:1.7rem;
+    text-transform: uppercase;
+    color: #FF3900;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+#orange-sub p {
+    font-family: georgia, times, 'times new roman', serif;
+    font-size:1.6rem;
+    line-height: 1.6em; 
+    font-style: normal; 
+    max-width: 300px;  
+    color: #666;
+}
+
 h2 {
     font-weight: 500;
     font-style: normal;
@@ -172,6 +189,8 @@ p {
     max-width: 300px; 
     margin: 0 auto;
 }
+
+
 
 .button {
     position: relative;
@@ -235,4 +254,19 @@ p {
 #buttonsend {
     width:103%;
     margin-left: -20px;
+}
+
+.home-about {
+    padding-top: 700px;
+}
+
+.thumbnail {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#qrcode {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
