@@ -124,6 +124,8 @@ hr {
 }
 
 .progress {
+    display: none;
     margin-top: 6px;
     margin-bottom: 6px;
+    max-width: 450px;
 }

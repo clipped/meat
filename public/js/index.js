@@ -77,6 +77,12 @@ function initializePage() {
 		});
 	});
 
+	$(".sortByBtn").click(function(e) {
+		e.preventDefault();
+		var sortBy = $(this).text();
+		getCoupons(sortBy);
+	});
+
 	$(".modal .modal-body").css("max-height", parseInt($(window).height()*0.5-50));
 
 	$("#cameraForm").ajaxForm({
@@ -100,6 +106,7 @@ function checkCouponName(formData, jqForm, options) {
 	var duplicateFile = false;
 
 	$(".errMsg").hide();
+	$(".progress").hide();
 	$(".progress-bar").text("0%");
 	$(".progress-bar").css("width", "0%");
 
@@ -126,9 +133,11 @@ function checkCouponName(formData, jqForm, options) {
 			return false;
 		}
 	});
+
 	// Disable upload button when uploading
 	if(!duplicateFile) {
 		$("#uploadBtn").prop("disabled", true);
+		$(".progress").show();
 	}
 	return !duplicateFile;
 }
@@ -139,6 +148,8 @@ function checkCouponName(formData, jqForm, options) {
 function showCoupon(rspTxt) {
 	// Enable upload button when done
 	$("#uploadBtn").prop("disabled", false);
+	$(".progress-bar").text("100%");
+	$(".progress-bar").css("width", "100%");
 	if(!rspTxt.result) {
 		$("#invalidQRMsg").show();
 		return false;
@@ -162,8 +173,12 @@ function showCoupon(rspTxt) {
 }
 
 function progressCallback(e, pos, total, percent) {
+	// show 100% only when response recieved from /upload
 	$(".progress-bar").text(percent+"%");
-	$(".progress-bar").css("width", percent+"%");
+	$(".progress-bar").css("width", (percent-1)+"%");
+	if(percent == 100) {
+		$(".progress-bar").text("Processing");
+	}
 }
 
 /*
@@ -232,12 +247,15 @@ function removeCoupon(e) {
 }
 
 /*
- *	Update available coupon list based on sort
+ *	Update available coupon list based on selected sort
  */
-function getCoupons(sel) {
+function sortBySelect(sel) {
 	var value = sel.options[sel.selectedIndex].value;
+	getCoupons(value);
+}
 
-	$.get("/coupons?sort="+value, function(data) {
+function getCoupons(method) {
+	$.get("/coupons?sort="+method, function(data) {
 		// Update current list of coupons to sorted data
 		$("#available .couponlist").remove();
 		$("#available").append(data);

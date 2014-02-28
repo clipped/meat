@@ -49,6 +49,7 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.welcome);
 app.get('/view', index.view);
+app.get('/buttons', index.buttons);
 app.get('/coupons', coupons.view);
 app.post('/upload', function(req, res, next) {
 	// may want to remove tmp files created during upload, 
