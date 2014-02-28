@@ -47,7 +47,11 @@
 						<span class="glyphicon glyphicon-home"></span>
 						&nbsp&nbspHome
 					</a></li>-->
-					<li class="active"><a href="#popular" data-toggle="tab" class="navlink">
+					<li class="active"><a href="#about" data-toggle="tab" class="navlink">
+						<span class="glyphicon glyphicon-qrcode"></span>
+						&nbsp&nbspAbout
+					</a></li>
+					<li><a href="#popular" data-toggle="tab" class="navlink">
 						<span class="glyphicon glyphicon-star"></span>
 						&nbsp&nbspPopular
 					</a></li>
@@ -58,10 +62,6 @@
 					<li><a href="#camera" data-toggle="tab" class="navlink">
 						<span class="glyphicon glyphicon-camera"></span>
 						&nbsp&nbspSnap
-					</a></li>
-					<li><a href="#about" data-toggle="tab" class="navlink">
-						<span class="glyphicon glyphicon-question-sign"></span>
-						&nbsp&nbspAbout
 					</a></li>
 				</ul>
 			</div>
@@ -119,7 +119,7 @@
 				  		</div>
 					</div>
 			</div>-->
-			<div class="tab-pane active " id="popular">
+			<div class="tab-pane" id="popular">
 				<div class="contentcenter">
 					<h3>Popular Coupons</h3>
 					<p>Check out the <b>top 5</b> Clipped coupons that are currently on everybody's myClip</p>
@@ -136,7 +136,7 @@
 				<form class="form-inline" role="form">
 					<input type="text" class="form-control filter" id="couponFilter" placeholder="Filter">
 					{{#if buttons}}
-						Sort By:
+						Sort By:<br>
 						<button class="sortByBtn btn btn-sm filter">Expiration Date</button>
 						<button class="sortByBtn btn btn-sm filter">Store</button>
 						<button class="sortByBtn btn btn-sm filter">Name</button>
@@ -149,7 +149,7 @@
 						</select>
 					{{/if}}
 				</form>
-				<br>
+				<hr class="short">
 			</div>
 			<div class="tab-pane" id="camera">
 				<div class="contentcenter">
@@ -158,8 +158,8 @@
 					<hr class="short">
 				</div>
 				<form method="post" enctype="multipart/form-data" action="/upload" id="cameraForm">
-					1. <input id="chooseFileBtn" type="file" name="file" accept="image/*" capture >
-					2. <input type="text" name="title" placeholder="Coupon Name" >
+					<input id="chooseFileBtn" type="file" name="file" accept="image/*" capture >
+					<input type="text" name="title" placeholder="Coupon Name" >
 					<button id="uploadBtn" type="submit" class="btn btn-primary btn-sm">Upload</button>
 					<p class="errMsg" id="noFileMsg">Please scan a QR code.</p>
 					<p class="errMsg" id="noNameMsg">Please name your coupon.</p>
@@ -172,6 +172,7 @@
 				</div>
 				<ul class="media-list couponlist">
 				</ul>
+				<hr class="short">
 			</div>
 			<!-- Dont need this anymore
 			<div class="tab-pane" id="howto">
@@ -192,23 +193,29 @@
 				<h5>Got more unanswered questions? Email us!</h5>			
 			</div>-->
 
-			<div class="tab-pane" id="about">
+			<div class="tab-pane active" id="about">
 				<div class="contentcenter">
 					<h3>About Clipped</h3>
-					<p>First time at Clipped &amp; want to learn more about the app? You came to the right place!</p>
+					<p>First time at Clipped &amp; want to learn more about this mobile app? You came to the right place!</p>
 					<hr class="short">
 					<div class="orange-sub">
 						<h3>Goal</h3>
 						<img src="images/shot1.png" class="thumbnail">
-						<p>Ever feel that you are not getting your money's worth when grocery shopping? Moreover, you just don't want to deal with having paper coupons stuffed in your back pockets and fishing them out at the check-out. We got you. Clipped is an easy way to go paperless and save money! Browse our wide selection of coupons, select the coupons that fit your needs, and create a mega-coupon with our QR code generator! One scan, many savings. 
+						<p>Ever feel that you are not getting your money's worth when grocery shopping? Moreover, you just don't want to deal with having paper coupons stuffed in your back pockets and fishing them out at the check-out. We got you. Clipped is an easy way to go paperless and save money! Browse our wide selection of coupons, select the coupons that fit your needs, and create a mega-coupon with our <strong>QR code generator</strong>! One scan, many savings. </p> 
 						<hr class="short">
-						<h3>Hold up, QR Code? What?</h3>
-						<img src="images/shot1.png" class="thumbnail">
-						<p>Ever feel that you are not getting your money's worth when grocery shopping? Spending a little too much here and there? You know you want to save money in every way you can but you just don't have time to go coupon hunting. Moreover, you just don't want to deal with the idea of having paper coupons stuffed in your back pockets and fishing them out at the check-out. We got you. Clipped is an easy way to go paperless! Browse our wide selection of coupons, select the coupons that fit your needs, and create a mega-coupon with our QR code generator! 
+						<h3>Hold up, QR Code?</h3>
+						<img src="images/shot2.png" class="thumbnail">
+						<p>We are ditching the barcode and moving with the QR Codes (Quick Response Codes). It holds all of your coupons that you selected! </p>
+						<hr class="short">
+						<h3>Get Started</h3>
+						<p>Check out trending coupons in the <a href="#popular" data-toggle="tab" class="navlink">Popular</a> or got straight to digging in the <a href="#available" data-toggle="tab" class="navlink">Available</a>. Add the coupons you want, view a comprehensive list in your cart, select QR Code Generator to view your final QR code! Easy as that.  </p>
+						<hr class="short">
+						<h3>Help Us, Help You</h3>
+						<img src="images/shot3.png" class="thumbnail">
+						<p>This project is far from launching - it's a lot of magic and Wizard of Oz. We are looking for feedback of all sorts. User interface, information architecture, functionality. We want to know what you want to see. Contact of our <a href="mailto:ly.victoria@yahoo.com">Clipped Project Team Member</a> and send your thoughts our way! </p>
 					</div>
 				</div>
-				<hr class="short">
-				<h5>Got more unanswered questions? Email us!</h5>			
+				<hr class="short">		
 			</div>
 			<div class="tab-pane" id="checkout">
 				<div class="contentcenter">
@@ -220,6 +227,7 @@
 					</div>
 					<image src="images/qrcheckout.png" id="qrcode">
 					<p>Present this QR code at the register during checkout!</p>
+					<hr class="short">
 				</div>
 			</div>
 		</div>
@@ -246,6 +254,21 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Footer -->
+	<nav class="mobile-nav">
+		<ul class="footer-nav">
+			<li>
+				<a href="#">Home</a>
+			</li>
+			<li>
+				<a href="#">Home</a>
+			</li>
+			<li>
+				<a href="#">Home</a>
+			</li>
+		</ul>
+	</nav>
 
 	<script src="/js/jquery-1.11.0.min.js"></script>
 	<script src="/js/jquery.form.min.js"></script>
