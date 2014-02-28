@@ -143,12 +143,19 @@
 				<h4>Search</h4>
 				<form class="form-inline" role="form">
 					<input type="text" class="form-control filter" id="couponFilter" placeholder="Filter">
-					<select class="form-control filter" id="sortBy" onchange="getCoupons(this)">
-						<option>Sort By</option>
-						<option>Expiration Date</option>
-						<option>Store</option>
-						<option>Name</option>
-					</select>
+					{{#if buttons}}
+						Sort By:
+						<button class="sortByBtn btn btn-sm filter">Expiration Date</button>
+						<button class="sortByBtn btn btn-sm filter">Store</button>
+						<button class="sortByBtn btn btn-sm filter">Name</button>
+					{{else}}
+						<select class="form-control filter" id="sortBy" onchange="sortBySelect(this)">
+							<option>Sort By</option>
+							<option>Expiration Date</option>
+							<option>Store</option>
+							<option>Name</option>
+						</select>
+					{{/if}}
 				</form>
 				<br>
 			</div>

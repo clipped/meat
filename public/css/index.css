@@ -124,8 +124,10 @@ hr {
 }
 
 .progress {
+    display: none;
     margin-top: 6px;
     margin-bottom: 6px;
+    max-width: 450px;
 }
 
 .contentcenter {
@@ -161,41 +163,4 @@ p {
     font-style: italic; 
     max-width: 300px; 
     margin: 0 auto;
-}
-
-/*Hopefully making the fucking image responsive*/
-img.ri
-{
-    position: absolute;
-    max-width: 100%;
-    top: 10%;
-    left: 10%;
-}
-
-img.ri:empty
-{
-    top: 31%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-@media screen and (orientation: portrait) {
-  img.ri { max-width: 110%; }
-}
-
-@media screen and (orientation: landscape) {
-  img.ri { max-height: 110%; }
-}
-
-.homebutton {
-    position: relative;
-    top: 107px;
-}
-
-.imgspace {
-    padding-top: 30px;
 }
