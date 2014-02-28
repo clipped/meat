@@ -172,3 +172,67 @@ p {
     max-width: 300px; 
     margin: 0 auto;
 }
+
+.button {
+    position: relative;
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    padding: 0.75em 2.5em 0.75em 2.5em;
+    background-color: none;
+    border: 3px solid #c0c0c0;
+    width: 100%;
+    font-weight: 600;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #000;
+    border: 3px solid #000;
+}
+/*            
+.button:active {
+    background-color: #7eaeac;
+}
+*/
+
+#button2 {
+    -webkit-appearance: none;
+    position: relative;
+    display: inline-block;
+    background: white;
+    padding: 0.1em 0.8em 0.1em 0.8em;
+    border: solid 3px #000;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-decoration: none;
+    -moz-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+            
+.homebutton {
+    position: relative;
+    text-align: center;
+    top: 107px;
+}
+        
+#button2:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+#buttonsend {
+    width:103%;
+    margin-left: -20px;
+}
