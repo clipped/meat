@@ -2,8 +2,16 @@
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
+	var tab = window.location.hash || "#about";
+	$("#navbar-collapse .navlink").each(function() {
+		if($(this).attr("href") == tab) {
+			$(this).parent().addClass("active");
+			return false;
+		}
+	});
+	$(tab).addClass("active");
 	initializePage();
-})
+});
 
 /*
  * Function that is called when the document is ready.
@@ -49,7 +57,7 @@ function initializePage() {
 		// update active tab in menu 
 		$(".navbar-nav").find(".active").removeClass("active");
 		var newActive = $(this).attr("href");
-		$(".navbar-nav li a").each(function(i) {
+		$(".navbar-nav li a").each(function() {
 			if($(this).attr("href") == newActive) {
 				var activeTab = $(this).parent();
 				setTimeout(function() {
@@ -126,7 +134,7 @@ function checkCouponName(formData, jqForm, options) {
 		return false;
 	}
 	// Check if file has been uploaded already
-	$(".origFilenames").each(function(i, e) {
+	$(".origFilenames").each(function() {
 		if($(this).val() == fileName) {
 			duplicateFile = true;
 			$("#dupCouponMsg").show();
