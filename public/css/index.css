@@ -46,11 +46,6 @@
 	margin: 50px auto;
 }
 
-.filter {
-	margin-top: 9px;
-	margin-bottom: 9px;
-}
-
 /* Centers navbar links @ >768px width */
 @media (min-width: 768px) {
 	.navbar .navbar-nav {
