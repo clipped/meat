@@ -9,25 +9,29 @@
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/index.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<!--<link href="css/responsive.css" rel="stylesheet">-->
 </head>
 <body class="welcome">
 	<div class="container">
-		<img class="img-responsive homelogo" src="/images/homelogo.png">
-		<div class="homebutton">
-			<a href="/view#popular" class="button2">
-				popular
-			</a>
-			<a href="/view#available" class="button2">
-				available
-			</a>
-			<a href="/view#camera" class="button2">
-				snap
-			</a>
-			<a href="/view#about" class="button2">
-				about
-			</a>
+		<img class="img-responsive homelogo" src="/images/homelogo1.png">
+		<div id="main-nav">
+			<div class="wrap cf">
+				<div class="select-div">
+					<div class="select-wrap">
+						<select class="select-menu" onchange="location = this.options[this.selectedIndex].value;">
+							<option value>Navigate to...</option>
+							<option value="/view#about">
+									About
+							</option>
+							<option value="/view#popular">Popular</option>
+							<option value="/view#available">Available</option>
+							<option value="/view#camera">Snap</option>
+						</select>
+					</div>
+				</div>
+			</div>
 		</div>
+
 	</div>
 	<script src="/js/jquery-1.11.0.min.js"></script>
 	<script src="/js/index.js"></script>
