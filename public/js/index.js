@@ -9,6 +9,7 @@ $(document).ready(function() {
 			return false;
 		}
 	});
+	window.location.hash = "";
 	$(tab).addClass("active");
 	initializePage();
 });
