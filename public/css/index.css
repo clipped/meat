@@ -271,26 +271,6 @@ p {
 	padding-bottom: 20px;
 }
 
-.mobile-nav {
-	margin: 0;
-	border: 0;
-	display: block;
-	background: #eee;
-	padding: 15px 20px 26px 20px;
-}
-
-.footer-nav {
-	text-align: center;
-	width: 100%;
-	padding-left: 0px;
-}
-
-.footer-nav li {
-	display: inline-block;
-	list-style: none;
-	margin-right: 18px;
-}
-
 #couponFilter {
 	margin-bottom: 5px;
 }
