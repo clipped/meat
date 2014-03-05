@@ -86,27 +86,18 @@
 				<form class="form-inline" role="form">
 					Filter By:
 					<input type="text" class="form-control" id="couponFilter" placeholder="E.g. Yogurt">
-					{{#if buttons}}
-						Sort By:<br>
-						<div class="btn-group btn-group-justified">
-							<div class="btn-group">
-								<button class="sortByBtn btn" value="Expiration Date">Exp. Date</button>
-							</div>
-							<div class="btn-group">
-							<button class="sortByBtn btn" value="Store">Store</button>
-							</div>
-							<div class="btn-group">
-							<button class="sortByBtn btn" value="Name">Name</button>
-							</div>
+					Sort By:<br>
+					<div class="btn-group btn-group-justified">
+						<div class="btn-group">
+							<button class="sortByBtn btn" value="Expiration Date">Exp. Date</button>
 						</div>
-					{{else}}
-						<select class="form-control" id="sortBy" onchange="sortBySelect(this)">
-							<option>Sort By</option>
-							<option>Expiration Date</option>
-							<option>Store</option>
-							<option>Name</option>
-						</select>
-					{{/if}}
+						<div class="btn-group">
+						<button class="sortByBtn btn" value="Store">Store</button>
+						</div>
+						<div class="btn-group">
+						<button class="sortByBtn btn" value="Name">Name</button>
+						</div>
+					</div>
 				</form>
 				<hr class="short">
 			</div>
