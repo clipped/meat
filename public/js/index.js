@@ -1,5 +1,7 @@
 'use strict';
 
+var fw = window.location.pathname == "/freewall"? 1: 0;
+
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	var tab = window.location.hash || "#about";
@@ -19,12 +21,27 @@ $(document).ready(function() {
  */
 function initializePage() {
 	// AJAX to populate list of coupons
-	$.get("coupons", {sort: "", popular: 1}, function(data) {
+
+	$.get("coupons", {sort: "", popular: 1, freewall: fw}, function(data) {
 		$("#popular").append(data);
-		$.get("coupons", {sort: "", popular: 0}, function(data) {
+		$.get("coupons", {sort: "", popular: 0, freewall: fw}, function(data) {
 			$("#available").append(data);
 			// Add coupon click handler
 			$(".addCoupon").click(addCoupon);
+			var wall = new freewall("#freewall");
+			wall.reset({
+				selector: '.brick',
+				animate: true,
+				cellW: 200,
+				cellH: 'auto',
+				onResize: function() {
+					wall.fitWidth();
+				}
+			});
+			
+			var images = wall.container.find('.brick');
+			var length = images.length;
+			wall.fitWidth();
 		});
 	});
 
@@ -60,7 +77,6 @@ function initializePage() {
 		var newActive = $(this).attr("href");
 		$(".navbar-nav li a").each(function() {
 			if($(this).attr("href") == newActive) {
-				window.location.hash = newActive.substr(1);
 				var activeTab = $(this).parent();
 				setTimeout(function() {
 					activeTab.addClass("active");
@@ -256,16 +272,8 @@ function removeCoupon(e) {
 	couponGlyph.parent().click(addCoupon);
 }
 
-/*
- *	Update available coupon list based on selected sort
- */
-function sortBySelect(sel) {
-	var value = sel.options[sel.selectedIndex].value;
-	getCoupons(value);
-}
-
 function getCoupons(method) {
-	$.get("/coupons?sort="+method, function(data) {
+	$.get("/coupons",{sort: method, freewall: fw}, function(data) {
 		// Update current list of coupons to sorted data
 		$("#available .couponlist").remove();
 		$("#available").append(data);

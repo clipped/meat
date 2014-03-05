@@ -1,18 +1,32 @@
-<ul class="media-list couponlist">
-	{{#each coupons}}
-		<li class="media {{{couponClassName name}}}">
-			<a class="pull-left disable">
-				<img class="media-object couponThumbnail" src="{{imageURL}}" alt="...">
-			</a>
-			<div class="media-body">
-				<h4 class="media-heading">
-					{{name}}
-					<a class="pull-right addCoupon"><span class="glyphicon glyphicon-plus"></span></a>
-				</h4>
-				{{description}}<br>
-				{{store}}<br>
-				<em>Exp:</em> {{expiration}}
+{{#if freewall}}
+	<div id="freewall" class="free-wall">
+		{{#each coupons}}
+			<div class="brick">
+				<img src="{{imageURL}}" width="100%">
+				<div class="info">
+					<h4>{{name}}</h4>
+					<h5>{{description}}</h5>
+				</div>
 			</div>
-		</li>
-	{{/each}}
-</ul>
+		{{/each}}
+	</div>
+{{else}}
+	<ul class="media-list couponlist">
+		{{#each coupons}}
+			<li class="media {{{couponClassName name}}}">
+				<a class="pull-left disable">
+					<img class="media-object couponThumbnail" src="{{imageURL}}" alt="...">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">
+						{{name}}
+						<a class="pull-right addCoupon"><span class="glyphicon glyphicon-plus"></span></a>
+					</h4>
+					{{description}}<br>
+					{{store}}<br>
+					<em>Exp:</em> {{expiration}}
+				</div>
+			</li>
+		{{/each}}
+	</ul>
+{{/if}}

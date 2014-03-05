@@ -76,14 +76,14 @@
             isNaN(fixSize) && (fixSize = null);
             // estimate size;
             if (!fixSize && setting.cellH == 'auto') {
-                $item.width(cellW * col - gutterX);
+                $item.width("auto");
                 item.style.height = "";
                 height = $item.height();
                 row = !height ? 0 : Math.round((height + gutterY) / cellH);
             }
 
             if (!fixSize && setting.cellW == 'auto') {
-                $item.height(cellH * row - gutterY);
+                $item.height("auto");
                 item.style.width = "";
                 width = $item.width();
                 col = !width ? 0 : Math.round((width + gutterX) / cellW);
@@ -227,8 +227,8 @@
 
                     $item["css"]({
                         opacity: 1,
-                        width: block.width,
-                        height: block.height
+                        width: "auto",
+                        height: "auto"
                     });
 
                     // for animating by javascript;
