@@ -290,3 +290,11 @@ p {
 	list-style: none;
 	margin-right: 18px;
 }
+
+#couponFilter {
+	margin-bottom: 5px;
+}
+
+.sortByBtn {
+	padding: 6px 12px;
+}

@@ -59,6 +59,7 @@ function initializePage() {
 		var newActive = $(this).attr("href");
 		$(".navbar-nav li a").each(function() {
 			if($(this).attr("href") == newActive) {
+				window.location.hash = newActive.substr(1);
 				var activeTab = $(this).parent();
 				setTimeout(function() {
 					activeTab.addClass("active");
@@ -87,7 +88,7 @@ function initializePage() {
 
 	$(".sortByBtn").click(function(e) {
 		e.preventDefault();
-		var sortBy = $(this).text();
+		var sortBy = $(this).val();
 		getCoupons(sortBy);
 	});
 
