@@ -1,6 +1,8 @@
 'use strict';
 
 var fw = window.location.pathname == "/freewall"? 1: 0;
+var startTime; 
+var firstAddClicked = 0, firstGenerate = 0;
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -13,6 +15,7 @@ $(document).ready(function() {
 	});
 	window.location.hash = "";
 	$(tab).addClass("active");
+	startTime = new Date().getTime();
 	initializePage();
 });
 
@@ -43,17 +46,17 @@ function initializePage() {
 	// Click handler for "checkout" i.e. Generate QR Code btn
 	$("#checkoutBtn").click(function(e){
 		// The button will be disabled when there are no items.
-		// Flash message when there are no items in myClip
 		if(parseInt($("#cartItems").text()) == 0) {
 			e.preventDefault();
-			$(".modal-body").animate({color: "#fff", backgroundColor: "#aa0000"}, 300);
-			$(".modal-body").animate({color: "#000", backgroundColor: "#fff"}, 300);
 			return false;
 		}
 		// hide modal when checkout btn is clicked
 		$("#walletModal").modal("hide");
 		// remove highlighting of nav tab by removing active class
 		$("#navbar-collapse > ul > li.active").removeClass("active");
+		if(!firstGenerate)
+			ga("send", "timing", "Generate Coupon", "First Generate", new Date().getTime() - startTime);
+		ga("send", "event", "Generate Coupon", "click");
 	});
 
 	// Auto collapse nav menu when link is clicked
@@ -133,7 +136,7 @@ function initializePage() {
 	});
 
 	$(".modal .modal-body").css("max-height", parseInt($(window).height()*0.5-50));
-
+	$().ajaxForm && 
 	$("#cameraForm").ajaxForm({
 		dataType: "json", 
 		beforeSubmit: checkCouponName, 
@@ -158,7 +161,7 @@ function checkCouponName(formData, jqForm, options) {
 	$(".progress").hide();
 	$(".progress-bar").text("0%");
 	$(".progress-bar").css("width", "0%");
-
+	ga("send", "event", "Upload Coupon", "Upload Attempt");
 	// No file selected
 	if(!jqForm[0].file.value){
 		$("#noFileMsg").show();
@@ -170,7 +173,7 @@ function checkCouponName(formData, jqForm, options) {
 		return false;
 	}
 	// Check if name is used
-	if($("#camera ul li").hasClass(couponClassName)) {
+	if($(".coupons").hasClass(couponClassName)) {
 		$("#dupCouponNameMsg").show();
 		return false;
 	}
@@ -203,8 +206,9 @@ function showCoupon(rspTxt) {
 		$("#invalidQRMsg").show();
 		return false;
 	}
+	ga("send", "event", "Upload Coupon", "Upload Success");
 	var str;
-	str = '<li class="media ' + rspTxt.className + '">'
+	str = '<li class="media coupon ' + rspTxt.className + '">'
 		str += '<a class="pull-left disable">';
 			str += '<img class="media-object couponThumbnail" src="images/tmp/' + rspTxt.src+ '" alt="...">';
 		str += '</a>';
@@ -235,7 +239,11 @@ function progressCallback(e, pos, total, percent) {
  */
 function addCoupon(e) {
 	e.preventDefault();
-
+	if(!firstAddClicked) {
+		firstAddClicked = 1;
+		ga("send", "timing", "Add Coupon", "First Add Clicked", new Date().getTime() - startTime);
+	}
+	ga("send", "event", "Add Coupon", "click");
 	// change cartItems text (num items in myClip)
 	var num = parseInt($("#cartItems").text()) + 1;
 	$("#cartItems").text(num);
