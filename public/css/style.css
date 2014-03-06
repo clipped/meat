@@ -75,17 +75,6 @@ h5 {
 h6 {
 	font-size: 0.875em;
 }
-a {
-	text-decoration: none;
-	color: white;
-}
-a:hover {
-	color: white;
-	opacity: 0.9;
-}
-a:visited {
-	color: white;
-}
 h2 {
 	cursor: pointer;
 }

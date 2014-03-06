@@ -220,11 +220,11 @@ p {
 	display: inline-block;
 	background: white;
 	padding: 0.1em 0.8em 0.1em 0.8em;
-	border: solid 3px #000;
+	border: solid 2px #000;
 	color: #000;
 	text-transform: uppercase;
-	font-size: 0.9em;
-	font-weight: 700;
+	font-size: 0.7em;
+	font-weight: 500;
 	letter-spacing: 0.1em;
 	text-align: center;
 	text-decoration: none;
@@ -235,18 +235,18 @@ p {
 	transition: all 0.25s ease-in-out;
 }
 			
-.homebutton {
+/*.homebutton {
 	position: relative;
 	text-align: center;
 	top: 69px;
-}
+}*/
 		
-#button2:hover {
+.button2:hover {
 	color: #fff;
 	background-color: #000;
 }
 
-#buttonsend {
+.buttonsend {
 	width:103%;
 	margin-left: -20px;
 }
@@ -266,8 +266,13 @@ p {
 	padding-bottom: 20px;
 }
 
-#couponFilter {
+.couponFilter {
 	margin-bottom: 5px;
+}
+
+.sortby{
+	padding-top: 10px;
+	text-align: center;
 }
 
 .sortByBtn {
@@ -480,4 +485,28 @@ p {
 	margin: 0px;
 	padding: 0px;
 	display: block;
+}
+
+.searchfunction {
+	padding-top: 23px;
+}
+
+.input-group-addon {
+	color:#069D4A;
+}
+
+#checkoutBtn {
+	width:100%;
+}
+
+.sortcenter {
+	text-align: center;
+}
+
+.center-block {
+	height: 33px;
+	width:315px;
+}
+.pagination-centered {
+	text-align: center;
 }
