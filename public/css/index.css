@@ -268,7 +268,7 @@ p {
 
 .sortby{
 	padding-top: 10px;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 .sortByBtn {
@@ -495,10 +495,10 @@ p {
 	width:100%;
 }
 
-.center-block {
+/*.center-block {
 	height: 33px;
 	width:315px;
-}
+}*/
 
 .aboutlink {
 	color: #ff6c00;
