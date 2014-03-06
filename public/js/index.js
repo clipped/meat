@@ -110,7 +110,7 @@ function initializePage() {
 			wall.reset({
 				selector: '.brick',
 				animate: true,
-				cellW: 120,
+				cellW: 125,
 				cellH: 'auto',
 				onResize: function() {
 					wall.refresh();
@@ -209,10 +209,10 @@ function showCoupon(rspTxt) {
 			str += '<img class="media-object couponThumbnail" src="images/tmp/' + rspTxt.src+ '" alt="...">';
 		str += '</a>';
 		str += '<div class="media-body">';
-			str += '<h4 class="media-heading">';
+			str += '<h5 class="media-heading">';
 			str += rspTxt.title; 
 			str += '<a class="pull-right addCoupon"><span class="glyphicon glyphicon-plus"></span></a>';
-			str += '</h4>';
+			str += '</h5>';
 			str += '<br>' + rspTxt.result + '<br>';
 			str += '<input type="hidden" class="origFilenames" value="' + rspTxt.origFilename + '">';
 		str += '</div>';
@@ -240,6 +240,7 @@ function addCoupon(e) {
 	var num = parseInt($("#cartItems").text()) + 1;
 	$("#cartItems").text(num);
 
+	var isBrick = $(this).closest(".coupon").hasClass("brick");
 	// Get the coupon name
 	var couponClasses = $(this).closest(".coupon").attr("class").split(" ");
 	var couponName = couponClasses[couponClasses.length-1];
@@ -252,6 +253,20 @@ function addCoupon(e) {
 
 	// Clone the coupon to add to myCLip
 	var couponClone = $("." + couponName).clone()[0];
+	if(isBrick) {
+		var str, tmp;
+		str = '<li class="media coupon ' + couponName + '">'
+			str += '<a class="pull-left disable">';
+				str += '<img class="media-object couponThumbnail" src="' + $(couponClone).children("img").attr("src") + '" alt="...">';
+			str += '</a>';
+		str += '</li>';
+		tmp = $(str);
+		tmp.append($(couponClone).find(".info"));
+		$(tmp).find(".info").removeClass("info").addClass("media-body");
+		$(tmp).find("h5").addClass("media-heading");
+		
+		couponClone = tmp;
+	}
 	var couponCloneGlyph = $(couponClone).find(".glyphicon");
 
 	// update clone of coupon in myClip
@@ -286,8 +301,9 @@ function removeCoupon(e) {
 		coupon.remove();
 	}
 
-	// Find coupons to update
-	var couponName = $(this).closest("li").attr("class").split(" ")[1];
+	// Find coupons to update	
+	var couponClasses = $(this).closest(".coupon").attr("class").split(" ");
+	var couponName = couponClasses[couponClasses.length-1];
 	var couponGlyph = $("." + couponName).find(".glyphicon");
 
 	// change check icons to + icons
@@ -329,7 +345,7 @@ function organizeCoupons(id) {
 	wall.reset({
 		selector: '.brick',
 		animate: true,
-		cellW: 120,
+		cellW: 125,
 		cellH: 'auto',
 		onResize: function() {
 			wall.refresh();

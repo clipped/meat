@@ -4,13 +4,13 @@
 			<div class="brick coupon {{{couponClassName name}}}">
 				<img src="{{imageURL}}" width="100%">
 				<div class="info">
-					<h4>
+					<h5>
 						{{name}}
 						<a class="pull-right addCoupon"><span class="glyphicon glyphicon-plus"></span></a>
-					</h4>
-					<h5>{{description}}</h5>
+					</h5>
+					<h6>{{description}}<br>
 					{{store}}<br>
-					<em>Exp:</em> {{expiration}}
+					<em>Exp:</em> {{expiration}}</h6>
 
 				</div>
 			</div>
@@ -24,13 +24,13 @@
 					<img class="media-object couponThumbnail" src="{{imageURL}}" alt="...">
 				</a>
 				<div class="media-body">
-					<h4 class="media-heading">
+					<h5 class="media-heading">
 						{{name}}
 						<a class="pull-right addCoupon"><span class="glyphicon glyphicon-plus"></span></a>
-					</h4>
-					{{description}}<br>
+					</h5>
+					<h6>{{description}}<br>
 					{{store}}<br>
-					<em>Exp:</em> {{expiration}}
+					<em>Exp:</em> {{expiration}}</h6>
 				</div>
 			</li>
 		{{/each}}
