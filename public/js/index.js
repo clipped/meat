@@ -21,27 +21,20 @@ $(document).ready(function() {
  */
 function initializePage() {
 	// AJAX to populate list of coupons
-
 	$.get("coupons", {sort: "", popular: 1, freewall: fw}, function(data) {
 		$("#popular").append(data);
 		$.get("coupons", {sort: "", popular: 0, freewall: fw}, function(data) {
 			$("#available").append(data);
 			// Add coupon click handler
 			$(".addCoupon").click(addCoupon);
-			var wall = new freewall("#freewall");
-			wall.reset({
-				selector: '.brick',
-				animate: true,
-				cellW: 200,
-				cellH: 'auto',
-				onResize: function() {
-					wall.fitWidth();
-				}
-			});
-			
-			var images = wall.container.find('.brick');
-			var length = images.length;
-			wall.fitWidth();
+
+			if($("#popular").hasClass("active"))
+				organizeCoupons("#popularFreewall");
+			if($("#available").hasClass("active")) {
+				setTimeout(function() {
+					organizeCoupons("#availableFreewall");
+				}, 400);
+			}
 		});
 	});
 
@@ -82,6 +75,10 @@ function initializePage() {
 					activeTab.addClass("active");
 				}, 400);
 				$(this).tab("show");
+				if(fw) {
+					organizeCoupons(newActive+"Freewall");
+					$("#couponFilter").val("");
+				}
 				return;
 			}
 		});
@@ -92,15 +89,41 @@ function initializePage() {
 		// Retrieve the input field text and reset the count to zero
 		var filter = $(this).val();
  
-		// Loop through the comment list
-		$("#available li").each(function(){
+		var selector = fw? $("#available .brick") : $("#available li");
+		selector.each(function(){
+			var found = $(this).text().search(new RegExp(filter, "i")) < 0;
 			// If the list item does not contain the text phrase fade it out
 			if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-				$(this).fadeOut();
+				if(!fw)
+					$(this).fadeOut();
+				else
+					$(this).removeClass("filterMe");
 			} else {
-				$(this).show();
+				if(!fw)
+					$(this).show();
+				else
+					$(this).addClass("filterMe");
 			}
 		});
+		if(fw) {
+			var wall = new freewall("#availableFreewall");
+			wall.reset({
+				selector: '.brick',
+				animate: true,
+				cellW: 120,
+				cellH: 'auto',
+				onResize: function() {
+					wall.refresh();
+				}
+			});
+			if (filter) {
+				wall.filter(".filterMe");
+			} else {
+				wall.unFilter();
+			}
+
+			wall.fitWidth();
+		}
 	});
 
 	$(".sortByBtn").click(function(e) {
@@ -218,7 +241,8 @@ function addCoupon(e) {
 	$("#cartItems").text(num);
 
 	// Get the coupon name
-	var couponName = $(this).closest("li").attr("class").split(" ")[1];
+	var couponClasses = $(this).closest(".coupon").attr("class").split(" ");
+	var couponName = couponClasses[couponClasses.length-1];
 	// Get the glyphicon span
 	var couponGlyph = $("." + couponName).find(".glyphicon");
 
@@ -277,6 +301,11 @@ function getCoupons(method) {
 		// Update current list of coupons to sorted data
 		$("#available .couponlist").remove();
 		$("#available").append(data);
+		if(fw) {
+			setTimeout(function() {
+					organizeCoupons("#availableFreewall");
+				}, 300);
+		}
 
 		// New list of coupons don't have old infomation such as if it were already added or not
 		// Check added coupons and fix the list
@@ -293,4 +322,21 @@ function getCoupons(method) {
 		addedCouponsGlphySpan.removeClass("glyphicon-plus");
 		addedCouponsGlphySpan.addClass("glyphicon-check");
 	});
+}
+
+function organizeCoupons(id) {
+	var wall = new freewall(id);
+	wall.reset({
+		selector: '.brick',
+		animate: true,
+		cellW: 120,
+		cellH: 'auto',
+		onResize: function() {
+			wall.refresh();
+		}
+	});
+	
+	var images = wall.container.find('.brick');
+	var length = images.length;
+	wall.fitWidth();
 }

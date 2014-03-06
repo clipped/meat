@@ -467,3 +467,17 @@ p {
 	width:280px;
 	margin:0 auto;
 }
+
+.brick {
+	max-width: 50%;
+}
+
+.info {
+	padding: 15px;
+	color: #333;
+}
+.brick img {
+	margin: 0px;
+	padding: 0px;
+	display: block;
+}

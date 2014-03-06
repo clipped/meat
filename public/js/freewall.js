@@ -32,12 +32,12 @@
             draggable: false,
             rightToLeft: false,
             bottomToTop: false,
-            onBlockActive: function() {},
-            onBlockFinish: function() {},
-            onBlockReady: function() {},
             onGapFound: function() {},
             onComplete: function() {},
-            onResize: function() {}
+            onResize: function() {},
+            onBlockReady: function() {},
+            onBlockFinish: function() {},
+            onBlockActive: function() {}
         },
         plugin: {},
         totalGrid: 1,
@@ -76,14 +76,14 @@
             isNaN(fixSize) && (fixSize = null);
             // estimate size;
             if (!fixSize && setting.cellH == 'auto') {
-                $item.width("auto");
+                $item.width(cellW * col - gutterX);
                 item.style.height = "";
                 height = $item.height();
                 row = !height ? 0 : Math.round((height + gutterY) / cellH);
             }
 
             if (!fixSize && setting.cellW == 'auto') {
-                $item.height("auto");
+                $item.height(cellH * row - gutterY);
                 item.style.width = "";
                 width = $item.width();
                 col = !width ? 0 : Math.round((width + gutterX) / cellW);
@@ -227,8 +227,8 @@
 
                     $item["css"]({
                         opacity: 1,
-                        width: "auto",
-                        height: "auto"
+                        width: block.width,
+                        height: block.height
                     });
 
                     // for animating by javascript;
@@ -379,24 +379,26 @@
             runtime.totalCol = 0;
             runtime.totalRow = 0;
         },
-        setDragable: function(item, option) {
+        setDraggable: function(item, option) {
             var isTouch = false;
             var config = {
                 startX: 0, //start clientX;
                 startY: 0, 
                 top: 0,
                 left: 0,
-                proxy: null,
+                handle: null,
                 onDrop: function() {},
                 onDrag: function() {},
                 onStart: function() {}
             };
-            
+
             $(item).each(function() {
                 var setting = $.extend({}, config, option);
-                var ele = setting.proxy || this;
+                var handle = setting.handle || this;
+                var ele = this;
                 var $E = $(ele);
-                
+                var $H = $(handle);
+
                 var posStyle = $E.css("position");
                 posStyle != "absolute" && $E.css("position", "relative");
                 
@@ -449,7 +451,7 @@
                 };
 
                 // ignore drag drop on text field;
-                $(this).find("iframe, form, input, textarea, .ignore-drag")
+                $E.find("iframe, form, input, textarea, .ignore-drag")
                 .each(function() {
                     $(this).on("touchstart mousedown", function(evt) {
                         evt.stopPropagation();
@@ -458,7 +460,7 @@
                 
                 $D.unbind("mouseup touchend", mouseUp);
                 $D.unbind("mousemove touchmove", mouseMove);
-                $E.unbind("mousedown touchstart").bind("mousedown touchstart", mouseDown);
+                $H.unbind("mousedown touchstart").bind("mousedown touchstart", mouseDown);
 
             });
         },
@@ -753,15 +755,16 @@
         }
         
 
-        function setDragable(item) {
+        function setDraggable(item) {
             
             var gutterX = runtime.gutterX;
             var gutterY = runtime.gutterY;
             var cellH = runtime.cellH;
             var cellW = runtime.cellW;
             var $item = $(item);
-
-            layoutManager.setDragable(item, {
+            var handle = $item.find($item.attr("data-handle"));
+            layoutManager.setDraggable(item, {
+                handle: handle[0],
                 onStart: function(event) {
                     if (setting.animate && layoutManager.transition) {
                         layoutManager.setTransition(this, "");
@@ -851,8 +854,10 @@
                 runtime.length = allBlock.length;
 
                 allBlock.each(function(index, item) {
-                    setting.draggable && setDragable(item);
                     layoutManager.showBlock(item, setting);
+                    if (setting.draggable || item.getAttribute('data-draggable')) {
+                        setDraggable(item);
+                    }
                 });
             },
             /*
@@ -892,6 +897,21 @@
             },
 
             container: container,
+
+            destroy: function() {
+                var allBlock = container.find(setting.selector).removeAttr('id'),
+                    block = null,
+                    activeBlock = [];
+
+                allBlock.each(function(index, item) {
+                    $item = $(item);
+                    var width = 1 * $item.attr('data-width') || "";
+                    var height = 1 * $item.attr('data-height') || "";
+                    $item.width(width).height(height).css({
+                        position: 'static'
+                    });
+                });
+            },
 
             fillHoles: function(holes) {
                 if (arguments.length == 0) {
@@ -962,8 +982,10 @@
                 runtime.length = allBlock.length;
 
                 allBlock.each(function(index, item) {
-                    setting.draggable && setDragable(item);
                     layoutManager.showBlock(item, setting);
+                    if (setting.draggable || item.getAttribute('data-draggable')) {
+                        setDraggable(item);
+                    }
                 });
             },
 
@@ -1006,8 +1028,10 @@
                 runtime.length = allBlock.length;
 
                 allBlock.each(function(index, item) {
-                    setting.draggable && setDragable(item);
                     layoutManager.showBlock(item, setting);
+                    if (setting.draggable || item.getAttribute('data-draggable')) {
+                        setDraggable(item);
+                    }
                 });
             },
 
@@ -1051,8 +1075,10 @@
                 runtime.length = allBlock.length;
                
                 allBlock.each(function(index, item) {
-                    setting.draggable && setDragable(item);
                     layoutManager.showBlock(item, setting);
+                    if (setting.draggable || item.getAttribute('data-draggable')) {
+                        setDraggable(item);
+                    }
                 });
             },
 
@@ -1060,7 +1086,7 @@
             set block with special position, the top and left are multiple of unit width/height;
             example:
 
-                wall.fixSize({
+                wall.fixPos({
                     top: 0,
                     left: 0,
                     block: $('.free')

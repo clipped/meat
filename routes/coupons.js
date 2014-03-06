@@ -7,7 +7,7 @@ exports.view = function(req, res){
 	var getPop = req.query["popular"] == '1';
 
 	if(getPop) {
-		res.render("partials/coupons", {"coupons": data.popularCoupons, "freewall": freewall});
+		res.render("partials/coupons", {"coupons": data.popularCoupons, "freewall": freewall, "id": "popularFreewall"});
 		return;
 	}
 
@@ -59,6 +59,6 @@ exports.view = function(req, res){
 		});
 	}
 
-	res.render("partials/coupons", {"coupons":coupons, "freewall": freewall});
+	res.render("partials/coupons", {"coupons":coupons, "freewall": freewall, "id": "availableFreewall"});
 };
 
