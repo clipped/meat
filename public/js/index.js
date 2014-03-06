@@ -31,8 +31,11 @@ function initializePage() {
 			// Add coupon click handler
 			$(".addCoupon").click(addCoupon);
 
-			if($("#popular").hasClass("active"))
-				organizeCoupons("#popularFreewall");
+			if($("#popular").hasClass("active")) {
+				setTimeout(function() {
+					organizeCoupons("#popularFreewall");
+				}, 400);
+			}
 			if($("#available").hasClass("active")) {
 				setTimeout(function() {
 					organizeCoupons("#availableFreewall");
