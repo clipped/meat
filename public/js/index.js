@@ -136,7 +136,7 @@ function initializePage() {
 	});
 
 	$(".modal .modal-body").css("max-height", parseInt($(window).height()*0.5-50));
-
+	$().ajaxForm && 
 	$("#cameraForm").ajaxForm({
 		dataType: "json", 
 		beforeSubmit: checkCouponName, 
@@ -173,7 +173,7 @@ function checkCouponName(formData, jqForm, options) {
 		return false;
 	}
 	// Check if name is used
-	if($($(".coupons").hasClass(couponClassName)) {
+	if($(".coupons").hasClass(couponClassName)) {
 		$("#dupCouponNameMsg").show();
 		return false;
 	}
