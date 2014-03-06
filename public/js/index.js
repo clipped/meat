@@ -58,8 +58,8 @@ function initializePage() {
 		// remove highlighting of nav tab by removing active class
 		$("#navbar-collapse > ul > li.active").removeClass("active");
 		if(!firstGenerate)
-			ga("send", "timing", "Generate Coupon", "First Generate", new Date().getTime() - startTime);
-		ga("send", "event", "Generate Coupon", "click");
+			ga("send", "timing", "Generate Coupon", "First Generate", new Date().getTime() - startTime, {"page": window.location.pathnam});
+		ga("send", "event", "Generate Coupon", "click", {"page": window.location.pathnam});
 	});
 
 	// Auto collapse nav menu when link is clicked
@@ -164,7 +164,7 @@ function checkCouponName(formData, jqForm, options) {
 	$(".progress").hide();
 	$(".progress-bar").text("0%");
 	$(".progress-bar").css("width", "0%");
-	ga("send", "event", "Upload Coupon", "Upload Attempt");
+	ga("send", "event", "Upload Coupon", "Upload Attempt", {"page": window.location.pathnam});
 	// No file selected
 	if(!jqForm[0].file.value){
 		$("#noFileMsg").show();
@@ -209,7 +209,7 @@ function showCoupon(rspTxt) {
 		$("#invalidQRMsg").show();
 		return false;
 	}
-	ga("send", "event", "Upload Coupon", "Upload Success");
+	ga("send", "event", "Upload Coupon", "Upload Success", {"page": window.location.pathnam});
 	var str;
 	str = '<li class="media coupon ' + rspTxt.className + '">'
 		str += '<a class="pull-left disable">';
@@ -244,9 +244,9 @@ function addCoupon(e) {
 	e.preventDefault();
 	if(!firstAddClicked) {
 		firstAddClicked = 1;
-		ga("send", "timing", "Add Coupon", "First Add Clicked", new Date().getTime() - startTime);
+		ga("send", "timing", "Add Coupon", "First Add Clicked", new Date().getTime() - startTime, {"page": window.location.pathnam});
 	}
-	ga("send", "event", "Add Coupon", "click");
+	ga("send", "event", "Add Coupon", "click", {"page": window.location.pathnam});
 	// change cartItems text (num items in myClip)
 	var num = parseInt($("#cartItems").text()) + 1;
 	$("#cartItems").text(num);
