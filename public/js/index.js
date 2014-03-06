@@ -55,7 +55,7 @@ function initializePage() {
 		// remove highlighting of nav tab by removing active class
 		$("#navbar-collapse > ul > li.active").removeClass("active");
 		if(!firstGenerate)
-			ga("send", "timing", "Generate Coupon", "First Generate", startTime - new Date().getTime());
+			ga("send", "timing", "Generate Coupon", "First Generate", new Date().getTime() - startTime);
 		ga("send", "event", "Generate Coupon", "click");
 	});
 
@@ -241,7 +241,7 @@ function addCoupon(e) {
 	e.preventDefault();
 	if(!firstAddClicked) {
 		firstAddClicked = 1;
-		ga("send", "timing", "Add Coupon", "First Add Clicked", startTime - new Date().getTime());
+		ga("send", "timing", "Add Coupon", "First Add Clicked", new Date().getTime() - startTime);
 	}
 	ga("send", "event", "Add Coupon", "click");
 	// change cartItems text (num items in myClip)
