@@ -74,10 +74,6 @@
 }
 */
 
-.media-heading {
-	font-weight: bolder;
-}
-
 .tab-content {
 	padding-top: 50px;
 }
@@ -499,14 +495,11 @@ p {
 	width:100%;
 }
 
-.sortcenter {
-	text-align: center;
-}
-
 .center-block {
 	height: 33px;
 	width:315px;
 }
-.pagination-centered {
-	text-align: center;
+
+.aboutlink {
+	color: #ff6c00;
 }
