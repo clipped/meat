@@ -90,6 +90,13 @@ function initializePage() {
 		});
 	});
 
+	// hide drop down when click outside
+	$('.tab-content').click(function(){
+		if($("#navbar-collapse").hasClass("in")) {
+				$(".navbar-toggle").click();
+		}
+	});
+
 	// Filtering coupons
 	$("#couponFilter").keyup(function(){
 		// Retrieve the input field text and reset the count to zero
@@ -139,7 +146,7 @@ function initializePage() {
 	});
 
 	$(".modal .modal-body").css("max-height", parseInt($(window).height()*0.5-50));
-	$().ajaxForm && 
+	
 	$("#cameraForm").ajaxForm({
 		dataType: "json", 
 		beforeSubmit: checkCouponName, 
