@@ -1,6 +1,6 @@
 'use strict';
 
-var fw = 1;
+var fw = 1;		// make freewall default
 var startTime; 
 var firstAddClicked = 0, firstGenerate = 0;
 
@@ -123,7 +123,7 @@ function initializePage() {
 			wall.reset({
 				selector: '.brick',
 				animate: true,
-				cellW: 125,
+				cellW: function(width){return width/2;},
 				cellH: 'auto',
 				onResize: function() {
 					wall.refresh();
@@ -363,7 +363,7 @@ function organizeCoupons(id) {
 	wall.reset({
 		selector: '.brick',
 		animate: true,
-		cellW: 125,
+		cellW: function(width){return width/2;},
 		cellH: 'auto',
 		onResize: function() {
 			wall.refresh();
