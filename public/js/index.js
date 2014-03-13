@@ -128,7 +128,7 @@ function initializePage() {
 				cellW: function(width){return width/2;},
 				cellH: 'auto',
 				onResize: function() {
-					wall.refresh();
+					//wall.refresh();
 				}
 			});
 			if (filter) {
@@ -369,7 +369,7 @@ function organizeCoupons(id) {
 		cellW: function(width){return width/2;},
 		cellH: 'auto',
 		onResize: function() {
-			wall.refresh();
+			//wall.refresh();
 		}
 	});
 	
