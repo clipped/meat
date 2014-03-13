@@ -98,6 +98,14 @@ function initializePage() {
 		}
 	});
 
+	// disable enter key press
+	$("#couponFilter").keypress(function(e) {
+		if(e.which == 13) {
+			e.preventDefault();
+			return false;
+		}
+	});
+
 	// Filtering coupons
 	$("#couponFilter").keyup(function(){
 		// Retrieve the input field text and reset the count to zero
