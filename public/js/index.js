@@ -158,7 +158,8 @@ function initializePage() {
 	$(".modal .modal-body").css("max-height", parseInt($(window).height()*0.5-50));
 	
 	$("#cameraForm").ajaxForm({
-		dataType: "json", 
+		dataType: "json",
+		semantic: true,
 		beforeSubmit: checkCouponName, 
 		success: showCoupon, 
 		uploadProgress: progressCallback
