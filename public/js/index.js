@@ -3,6 +3,7 @@
 var fw = 1;		// make freewall default
 var startTime; 
 var firstAddClicked = 0, firstGenerate = 0;
+var wall;
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -119,7 +120,8 @@ function initializePage() {
 			}
 		});
 		if(fw) {
-			var wall = new freewall("#availableFreewall");
+			wall && wall.destroy();// && delete wall;
+			wall = new freewall("#availableFreewall");
 			wall.reset({
 				selector: '.brick',
 				animate: true,
@@ -359,7 +361,8 @@ function getCoupons(method) {
 }
 
 function organizeCoupons(id) {
-	var wall = new freewall(id);
+	wall && wall.destroy();// && delete wall;
+	wall = new freewall(id);
 	wall.reset({
 		selector: '.brick',
 		animate: true,
