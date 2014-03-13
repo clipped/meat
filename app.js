@@ -67,11 +67,6 @@ app.post('/upload', function(req, res, next) {
         	console.log('unable to read qr code');
       	}
 	};
-	console.log(!req.files.file);
-	if(!req.files.file) {
-		res.json({});
-		return;
-	}
 	image.src = req.files.file.path;
 
 	// Maybe we want to return a coupon json object?
