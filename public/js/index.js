@@ -1,6 +1,6 @@
 'use strict';
 
-var fw = window.location.pathname == "/freewall"? 1: 0;
+var fw = 1;
 var startTime; 
 var firstAddClicked = 0, firstGenerate = 0;
 

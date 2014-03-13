@@ -9,8 +9,3 @@ exports.view = function(req, res){
 exports.welcome = function(req, res) {
 	res.render('welcome');
 };
-
-exports.freewall = function(req, res) {
-	
-	res.render('index');
-};

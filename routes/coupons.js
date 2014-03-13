@@ -2,7 +2,7 @@
 var data =  require('../data.json');
 
 exports.view = function(req, res){
-	var freewall = req.query["freewall"] == '1';
+	var freewall = 1;
 	var sort = req.query["sort"];
 	var getPop = req.query["popular"] == '1';
 
